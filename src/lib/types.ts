@@ -7,13 +7,6 @@ export interface User {
   statusMessage?: string;
 }
 
-export interface AuthUser extends User {
-  provider: "email" | "google";
-  passwordHash?: string;
-  googleSub?: string;
-  createdAt: string;
-}
-
 export interface Friend {
   uid: string;
   name: string;
@@ -59,17 +52,6 @@ export interface FriendRequest {
   fromUserName: string;
   toUserId: string;
   status: "pending" | "accepted" | "rejected";
-}
-
-export interface AppDatabase {
-  user: User | null;
-  users: AuthUser[];
-  currentUserId: string | null;
-  friends: Friend[];
-  groups: Group[];
-  jams: Jam[];
-  messages: Message[];
-  friendRequests: FriendRequest[];
 }
 
 export type TabType = "map" | "social" | "mood";

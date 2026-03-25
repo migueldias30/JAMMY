@@ -1,14 +1,13 @@
 "use client";
 
 import { User } from "@/lib/types";
-import { Plus, Bell, LogOut } from "lucide-react";
+import { Plus, Bell } from "lucide-react";
 import { cn } from "@/lib/utils";
 import styles from "./header.module.css";
 
 interface HeaderProps {
   user: User;
   onCreateJam: () => void;
-  onLogout: () => void;
   hasNotifications?: boolean;
 }
 
@@ -19,7 +18,7 @@ const statusColors = {
   offline: "bg-muted-foreground/30",
 };
 
-export default function Header({ user, onCreateJam, onLogout, hasNotifications }: HeaderProps) {
+export default function Header({ user, onCreateJam, hasNotifications }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -56,13 +55,6 @@ export default function Header({ user, onCreateJam, onLogout, hasNotifications }
           >
             <Plus size={20} />
             <span className={styles.ctaLabel}>Nova Jam</span>
-          </button>
-          <button
-            onClick={onLogout}
-            className={styles.iconButton}
-            aria-label="Terminar sessão"
-          >
-            <LogOut size={20} />
           </button>
         </div>
       </div>
