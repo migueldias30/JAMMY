@@ -1,0 +1,129 @@
+@reference "../app/globals.css";
+
+.root {
+  @apply space-y-6 p-4;
+}
+
+.card {
+  @apply rounded-2xl border border-border bg-card p-6;
+}
+
+.profile {
+  @apply mb-6 flex items-center gap-4;
+}
+
+.avatarWrap {
+  @apply relative;
+}
+
+.avatar {
+  @apply flex h-20 w-20 items-center justify-center rounded-full bg-secondary text-3xl font-semibold text-secondary-foreground;
+}
+
+.statusDot {
+  @apply absolute -bottom-1 -right-1 h-6 w-6 rounded-full border-4 border-card;
+}
+
+.name {
+  @apply text-xl font-semibold text-foreground;
+}
+
+.statusLabel {
+  @apply text-muted-foreground;
+}
+
+.section {
+  @apply space-y-2;
+}
+
+.sectionLabel {
+  @apply text-sm font-medium text-muted-foreground;
+}
+
+.messageEdit {
+  @apply flex gap-2;
+}
+
+.input {
+  @apply flex-1 rounded-xl border border-border bg-secondary px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary;
+}
+
+.saveButton {
+  @apply rounded-xl bg-primary px-4 py-3 font-medium text-primary-foreground transition-opacity hover:opacity-90;
+}
+
+.messageButton {
+  @apply flex w-full items-center gap-3 rounded-xl border border-border bg-secondary px-4 py-3 text-left transition-colors hover:bg-secondary/80;
+}
+
+.messageTextActive {
+  @apply text-foreground;
+}
+
+.messageTextIdle {
+  @apply text-muted-foreground;
+}
+
+.messageIcon {
+  @apply ml-auto text-muted-foreground;
+}
+
+.quickMessages {
+  @apply mt-4 flex flex-wrap gap-2;
+}
+
+.chip {
+  @apply rounded-full border px-3 py-1.5 text-sm transition-colors;
+}
+
+.chipActive {
+  @apply border-primary bg-primary text-primary-foreground;
+}
+
+.chipIdle {
+  @apply border-border bg-secondary text-secondary-foreground hover:border-primary/50;
+}
+
+.availability {
+  @apply space-y-3;
+}
+
+.availabilityTitle {
+  @apply px-1 text-sm font-medium text-muted-foreground;
+}
+
+.availabilityGrid {
+  @apply grid grid-cols-2 gap-3;
+}
+
+.statusButton {
+  @apply flex flex-col items-start rounded-xl border-2 p-4 text-left transition-all;
+}
+
+.statusButtonIdle {
+  @apply border-border bg-card hover:border-primary/30;
+}
+
+.statusIcon {
+  @apply mb-2;
+}
+
+.statusIconIdle {
+  @apply text-muted-foreground;
+}
+
+.statusTitleIdle {
+  @apply text-foreground;
+}
+
+.statusDescription {
+  @apply mt-0.5 text-xs;
+}
+
+.statusDescriptionIdle {
+  @apply text-muted-foreground;
+}
+
+.info {
+  @apply rounded-xl bg-muted/50 p-4 text-sm text-muted-foreground;
+}

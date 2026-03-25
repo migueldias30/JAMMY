@@ -4,6 +4,7 @@ import { useState } from "react";
 import { User } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import { Circle, Coffee, Briefcase, Plane, Moon, Edit3 } from "lucide-react";
+import styles from "./mood-tab.module.css";
 
 interface MoodTabProps {
   user: User;
@@ -73,46 +74,44 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
   };
 
   return (
-    <div className="p-4 space-y-6">
-      {/* Current Status Display */}
-      <div className="bg-card rounded-2xl border border-border p-6">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="relative">
-            <div className="w-20 h-20 rounded-full bg-secondary flex items-center justify-center text-3xl font-semibold text-secondary-foreground">
+    <div className={styles.root}>
+      <div className={styles.card}>
+        <div className={styles.profile}>
+          <div className={styles.avatarWrap}>
+            <div className={styles.avatar}>
               {user.name.charAt(0)}
             </div>
             <div
               className={cn(
-                "absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-4 border-card",
+                styles.statusDot,
                 statusOptions.find((s) => s.status === user.status)?.dotColor
               )}
             />
           </div>
           <div>
-            <h2 className="text-xl font-semibold text-foreground">{user.name}</h2>
-            <p className="text-muted-foreground">
+            <h2 className={styles.name}>{user.name}</h2>
+            <p className={styles.statusLabel}>
               {statusOptions.find((s) => s.status === user.status)?.label}
             </p>
           </div>
         </div>
 
-        {/* Status Message */}
-        <div className="space-y-2">
-          <label className="text-sm font-medium text-muted-foreground">Status Message</label>
+        <div className={styles.section}>
+          <label className={styles.sectionLabel}>Status Message</label>
           {isEditingMessage ? (
-            <div className="flex gap-2">
+            <div className={styles.messageEdit}>
               <input
                 type="text"
                 value={customMessage}
                 onChange={(e) => setCustomMessage(e.target.value)}
                 placeholder="What's on your mind?"
-                className="flex-1 px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className={styles.input}
                 autoFocus
                 onKeyDown={(e) => e.key === "Enter" && handleMessageSubmit()}
               />
               <button
                 onClick={handleMessageSubmit}
-                className="px-4 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+                className={styles.saveButton}
               >
                 Save
               </button>
@@ -120,27 +119,24 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
           ) : (
             <button
               onClick={() => setIsEditingMessage(true)}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary border border-border text-left hover:bg-secondary/80 transition-colors"
+              className={styles.messageButton}
             >
-              <span className={customMessage ? "text-foreground" : "text-muted-foreground"}>
+              <span className={customMessage ? styles.messageTextActive : styles.messageTextIdle}>
                 {customMessage || "Add a status message..."}
               </span>
-              <Edit3 size={16} className="ml-auto text-muted-foreground" />
+              <Edit3 size={16} className={styles.messageIcon} />
             </button>
           )}
         </div>
 
-        {/* Quick Messages */}
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className={styles.quickMessages}>
           {quickMessages.map((message) => (
             <button
               key={message}
               onClick={() => handleQuickMessage(message)}
               className={cn(
-                "px-3 py-1.5 rounded-full text-sm border transition-colors",
-                customMessage === message
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-secondary text-secondary-foreground border-border hover:border-primary/50"
+                styles.chip,
+                customMessage === message ? styles.chipActive : styles.chipIdle
               )}
             >
               {message}
@@ -149,10 +145,9 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
         </div>
       </div>
 
-      {/* Status Options */}
-      <div className="space-y-3">
-        <h3 className="text-sm font-medium text-muted-foreground px-1">Your Availability</h3>
-        <div className="grid grid-cols-2 gap-3">
+      <div className={styles.availability}>
+        <h3 className={styles.availabilityTitle}>Your Availability</h3>
+        <div className={styles.availabilityGrid}>
           {statusOptions.map((option) => {
             const Icon = option.icon;
             const isActive = user.status === option.status;
@@ -162,23 +157,21 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
                 key={option.status}
                 onClick={() => handleStatusSelect(option.status)}
                 className={cn(
-                  "flex flex-col items-start p-4 rounded-xl border-2 transition-all text-left",
-                  isActive
-                    ? option.color
-                    : "bg-card border-border hover:border-primary/30"
+                  styles.statusButton,
+                  isActive ? option.color : styles.statusButtonIdle
                 )}
               >
                 <Icon
                   size={24}
                   className={cn(
-                    "mb-2",
-                    isActive ? "" : "text-muted-foreground"
+                    styles.statusIcon,
+                    !isActive && styles.statusIconIdle
                   )}
                 />
-                <span className={cn("font-medium", isActive ? "" : "text-foreground")}>
+                <span className={cn(!isActive && styles.statusTitleIdle)}>
                   {option.label}
                 </span>
-                <span className={cn("text-xs mt-0.5", isActive ? "opacity-80" : "text-muted-foreground")}>
+                <span className={cn(styles.statusDescription, !isActive ? styles.statusDescriptionIdle : "opacity-80")}>
                   {option.description}
                 </span>
               </button>
@@ -187,8 +180,7 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
         </div>
       </div>
 
-      {/* Info */}
-      <div className="bg-muted/50 rounded-xl p-4 text-sm text-muted-foreground">
+      <div className={styles.info}>
         <p>
           Your status helps friends know when you're free to jam. They can see your availability
           and status message when planning hangouts.
