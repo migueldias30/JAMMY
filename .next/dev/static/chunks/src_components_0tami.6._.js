@@ -59,6 +59,7 @@ const createJamIcon = (jam)=>{
 function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
     _s();
     const [isMounted, setIsMounted] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [isMapReady, setIsMapReady] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const mapElementRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const mapRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])(null);
     const markersRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRef"])({});
@@ -91,9 +92,14 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                     }
                 }["MapView.useEffect"]);
             }
-            requestAnimationFrame({
+            map.whenReady({
                 "MapView.useEffect": ()=>{
-                    map.invalidateSize();
+                    requestAnimationFrame({
+                        "MapView.useEffect": ()=>{
+                            map.invalidateSize();
+                            setIsMapReady(true);
+                        }
+                    }["MapView.useEffect"]);
                 }
             }["MapView.useEffect"]);
             mapRef.current = map;
@@ -102,6 +108,7 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                     map.remove();
                     mapRef.current = null;
                     markersRef.current = {};
+                    setIsMapReady(false);
                 }
             })["MapView.useEffect"];
         }
@@ -112,7 +119,7 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "MapView.useEffect": ()=>{
             const map = mapRef.current;
-            if (!map) {
+            if (!map || !isMapReady) {
                 return;
             }
             Object.values(markersRef.current).forEach({
@@ -143,26 +150,32 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                     markersRef.current[jam.id] = marker;
                 }
             }["MapView.useEffect"]);
-            if (jams.length === 1) {
-                map.flyTo(jams[0].pos, 14, {
-                    duration: 0.4
-                });
-                return;
-            }
-            if (jams.length > 1) {
-                const bounds = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].latLngBounds(jams.map({
-                    "MapView.useEffect.bounds": (jam)=>jam.pos
-                }["MapView.useEffect.bounds"]));
-                map.fitBounds(bounds, {
-                    padding: [
-                        32,
-                        32
-                    ],
-                    maxZoom: 14
-                });
-            }
+            requestAnimationFrame({
+                "MapView.useEffect": ()=>{
+                    map.invalidateSize();
+                    if (jams.length === 1) {
+                        map.flyTo(jams[0].pos, 14, {
+                            duration: 0.4
+                        });
+                        return;
+                    }
+                    if (jams.length > 1) {
+                        const bounds = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].latLngBounds(jams.map({
+                            "MapView.useEffect.bounds": (jam)=>jam.pos
+                        }["MapView.useEffect.bounds"]));
+                        map.fitBounds(bounds, {
+                            padding: [
+                                32,
+                                32
+                            ],
+                            maxZoom: 14
+                        });
+                    }
+                }
+            }["MapView.useEffect"]);
         }
     }["MapView.useEffect"], [
+        isMapReady,
         jams,
         onJamSelect
     ]);
@@ -192,12 +205,12 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                 children: "A carregar mapa..."
             }, void 0, false, {
                 fileName: "[project]/src/components/map-view.tsx",
-                lineNumber: 149,
+                lineNumber: 158,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/map-view.tsx",
-            lineNumber: 148,
+            lineNumber: 157,
             columnNumber: 7
         }, this);
     }
@@ -230,11 +243,11 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].map
     }, void 0, false, {
         fileName: "[project]/src/components/map-view.tsx",
-        lineNumber: 168,
+        lineNumber: 177,
         columnNumber: 10
     }, this);
 }
-_s(MapView, "whQJLaXG8Q9rv5Qwm5GVOYIw5oU=");
+_s(MapView, "NUrClCvasW+OgUHP/WjYl622URo=");
 _c = MapView;
 var _c;
 __turbopack_context__.k.register(_c, "MapView");

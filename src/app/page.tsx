@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { TabType, Jam, Message, User } from "@/lib/types";
+import { NotificationItem, TabType, Jam, Message, User } from "@/lib/types";
 import { mockUser, mockFriends, mockGroups, mockJams, mockMessages, mockFriendRequests } from "@/lib/mock-data";
 import Header from "@/components/header";
 import BottomNav from "@/components/bottom-nav";
@@ -108,6 +108,22 @@ export default function Home() {
   const jamMessages = chatJam ? messages.filter((m) => m.jamId === chatJam.id) : [];
   const isAttendingChat = chatJam ? chatJam.attendees.includes(user.name) || chatJam.creatorId === user.uid : false;
   const pendingRequests = friendRequests.filter((r) => r.status === "pending");
+  const notifications: NotificationItem[] = [
+    ...pendingRequests.map((request) => ({
+      id: `request-${request.id}`,
+      title: `${request.fromUserName} quer adicionar-te`,
+      description: "Tens um novo pedido de amizade pendente.",
+      timeLabel: "Agora",
+      kind: "request" as const,
+    })),
+    ...jams.slice(0, 3).map((jam) => ({
+      id: `jam-${jam.id}`,
+      title: jam.title,
+      description: `${jam.attendees.length} pessoas já estão nesta jam.`,
+      timeLabel: new Date(jam.dateTime).toLocaleDateString("pt-PT", { day: "2-digit", month: "2-digit" }),
+      kind: "jam" as const,
+    })),
+  ];
 
   return (
     <div className={styles.page}>
@@ -115,6 +131,7 @@ export default function Home() {
         user={user}
         onCreateJam={() => setShowCreateJam(true)}
         hasNotifications={pendingRequests.length > 0}
+        notifications={notifications}
       />
 
       <main className={styles.main}>

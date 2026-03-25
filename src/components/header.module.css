@@ -1,7 +1,7 @@
 @reference "../app/globals.css";
 
 .header {
-  @apply fixed left-0 right-0 top-0 z-40 border-b border-border bg-background/80 backdrop-blur-lg;
+  @apply fixed left-0 right-0 top-0 z-[1000] border-b border-border bg-background/80 backdrop-blur-lg;
 }
 
 .inner {
@@ -12,8 +12,13 @@
   @apply flex items-center gap-3;
 }
 
+.brandMark {
+  @apply flex h-10 w-10 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-sm;
+}
+
 .avatarWrap {
   @apply relative;
+  flex-shrink: 0;
 }
 
 .avatar {
@@ -32,6 +37,10 @@
   @apply flex items-center gap-2;
 }
 
+.notificationsWrap {
+  @apply relative;
+}
+
 .iconButton {
   @apply relative rounded-xl bg-secondary p-2.5 text-foreground transition-colors hover:bg-secondary/80;
 }
@@ -46,4 +55,52 @@
 
 .ctaLabel {
   @apply hidden sm:inline;
+}
+
+.notificationsPanel {
+  @apply absolute right-0 top-14 z-[1001] w-[min(24rem,calc(100vw-2rem))] overflow-hidden rounded-3xl border border-border bg-background shadow-2xl;
+}
+
+.notificationsHeader {
+  @apply flex items-center justify-between border-b border-border px-4 py-3;
+}
+
+.notificationsTitle {
+  @apply text-sm font-semibold text-foreground;
+}
+
+.notificationsCount {
+  @apply rounded-full bg-secondary px-2 py-1 text-xs font-medium text-muted-foreground;
+}
+
+.notificationsList {
+  @apply max-h-96 overflow-y-auto p-2;
+}
+
+.notificationItem {
+  @apply flex items-start gap-3 rounded-2xl px-3 py-3 transition-colors hover:bg-secondary;
+}
+
+.notificationIconWrap {
+  @apply mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-primary;
+}
+
+.notificationBody {
+  @apply min-w-0 flex-1;
+}
+
+.notificationItemTitle {
+  @apply text-sm font-medium text-foreground;
+}
+
+.notificationItemText {
+  @apply mt-1 text-sm text-muted-foreground;
+}
+
+.notificationTime {
+  @apply shrink-0 text-xs text-muted-foreground;
+}
+
+.notificationsEmpty {
+  @apply flex items-center gap-2 rounded-2xl px-3 py-6 text-sm text-muted-foreground;
 }

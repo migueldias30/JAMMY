@@ -54,4 +54,12 @@ export interface FriendRequest {
   status: "pending" | "accepted" | "rejected";
 }
 
+export interface NotificationItem {
+  id: string;
+  title: string;
+  description: string;
+  timeLabel: string;
+  kind: "request" | "jam" | "message";
+}
+
 export type TabType = "map" | "social" | "mood";

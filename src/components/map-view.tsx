@@ -38,6 +38,7 @@ interface MapViewProps {
 
 export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: MapViewProps) {
   const [isMounted, setIsMounted] = useState(false);
+  const [isMapReady, setIsMapReady] = useState(false);
   const mapElementRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<LeafletMap | null>(null);
   const markersRef = useRef<Record<string, LeafletMarker>>({});
@@ -66,8 +67,11 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
       });
     }
 
-    requestAnimationFrame(() => {
-      map.invalidateSize();
+    map.whenReady(() => {
+      requestAnimationFrame(() => {
+        map.invalidateSize();
+        setIsMapReady(true);
+      });
     });
 
     mapRef.current = map;
@@ -76,12 +80,13 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
       map.remove();
       mapRef.current = null;
       markersRef.current = {};
+      setIsMapReady(false);
     };
   }, [isMounted, onMapClick]);
 
   useEffect(() => {
     const map = mapRef.current;
-    if (!map) {
+    if (!map || !isMapReady) {
       return;
     }
 
@@ -112,19 +117,23 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
       markersRef.current[jam.id] = marker;
     });
 
-    if (jams.length === 1) {
-      map.flyTo(jams[0].pos, 14, { duration: 0.4 });
-      return;
-    }
+    requestAnimationFrame(() => {
+      map.invalidateSize();
 
-    if (jams.length > 1) {
-      const bounds = L.latLngBounds(jams.map((jam) => jam.pos));
-      map.fitBounds(bounds, {
-        padding: [32, 32],
-        maxZoom: 14,
-      });
-    }
-  }, [jams, onJamSelect]);
+      if (jams.length === 1) {
+        map.flyTo(jams[0].pos, 14, { duration: 0.4 });
+        return;
+      }
+
+      if (jams.length > 1) {
+        const bounds = L.latLngBounds(jams.map((jam) => jam.pos));
+        map.fitBounds(bounds, {
+          padding: [32, 32],
+          maxZoom: 14,
+        });
+      }
+    });
+  }, [isMapReady, jams, onJamSelect]);
 
   useEffect(() => {
     if (!selectedJam) {

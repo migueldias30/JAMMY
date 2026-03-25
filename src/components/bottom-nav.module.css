@@ -1,7 +1,7 @@
 @reference "../app/globals.css";
 
 .nav {
-  @apply fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card;
+  @apply fixed bottom-0 left-0 right-0 z-[1000] border-t border-border bg-card;
 }
 
 .inner {

@@ -3,7 +3,7 @@
   right: calc(var(--spacing, .25rem) * 0);
   bottom: calc(var(--spacing, .25rem) * 0);
   left: calc(var(--spacing, .25rem) * 0);
-  z-index: 40;
+  z-index: 1000;
   border-top-style: var(--tw-border-style);
   border-top-width: 1px;
   border-color: hsl(var(--border));
