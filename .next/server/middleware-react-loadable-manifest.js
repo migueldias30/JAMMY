@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/page.tsx -> @/components/map-view":{"id":5602,"files":["static/css/38e4901bf73352b6.css","static/chunks/d0deef33.dfa5d799e18179ab.js","static/chunks/602.35a2b58f8c2269d4.js"]}}';
