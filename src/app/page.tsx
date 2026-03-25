@@ -186,7 +186,7 @@ export default function Home() {
         )}
 
         {activeTab === "social" && (
-          <div className={styles.content}>
+          <div className={styles.panel}>
             <SocialTab
               friends={friends}
               groups={groups}
@@ -199,7 +199,7 @@ export default function Home() {
         )}
 
         {activeTab === "mood" && (
-          <div className={styles.scrollArea}>
+          <div className={styles.panel}>
             <MoodTab user={user} onStatusChange={handleStatusChange} />
           </div>
         )}

@@ -6,13 +6,14 @@
 
 .page-module___8aEwW__main {
   height: 100vh;
-  padding-top: calc(var(--spacing, .25rem) * 16);
+  padding-top: calc(var(--spacing, .25rem) * 19);
   padding-bottom: calc(var(--spacing, .25rem) * 20);
 }
 
 .page-module___8aEwW__panel {
-  flex-direction: column;
   height: 100%;
+  min-height: calc(var(--spacing, .25rem) * 0);
+  flex-direction: column;
   display: flex;
 }
 
@@ -78,12 +79,14 @@
 }
 
 .page-module___8aEwW__content {
+  min-height: calc(var(--spacing, .25rem) * 0);
   flex: 1;
   overflow: hidden;
 }
 
 .page-module___8aEwW__scrollArea {
   height: 100%;
+  min-height: calc(var(--spacing, .25rem) * 0);
   overflow-y: auto;
 }
 

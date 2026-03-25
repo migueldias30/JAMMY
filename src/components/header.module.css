@@ -5,7 +5,7 @@
 }
 
 .inner {
-  @apply mx-auto flex max-w-screen-xl items-center justify-between px-4 py-3;
+  @apply flex w-full items-center justify-between px-4 py-3;
 }
 
 .brand {

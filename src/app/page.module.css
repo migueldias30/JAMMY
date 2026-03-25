@@ -5,11 +5,11 @@
 }
 
 .main {
-  @apply h-screen pt-16 pb-20;
+  @apply h-screen pt-19 pb-20;
 }
 
 .panel {
-  @apply flex h-full flex-col;
+  @apply flex h-full min-h-0 flex-col;
 }
 
 .toolbar {
@@ -45,11 +45,11 @@
 }
 
 .content {
-  @apply flex-1 overflow-hidden;
+  @apply flex-1 overflow-hidden min-h-0;
 }
 
 .scrollArea {
-  @apply h-full overflow-y-auto;
+  @apply h-full min-h-0 overflow-y-auto;
 }
 
 .loadingState {

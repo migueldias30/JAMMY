@@ -24,12 +24,11 @@
 }
 
 .header-module__3iWRfG__inner {
-  max-width: var(--breakpoint-xl, 80rem);
+  width: 100%;
   padding-inline: calc(var(--spacing, .25rem) * 4);
   padding-block: calc(var(--spacing, .25rem) * 3);
   justify-content: space-between;
   align-items: center;
-  margin-inline: auto;
   display: flex;
 }
 
