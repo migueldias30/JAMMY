@@ -144,14 +144,14 @@ export default function CreateJamModal({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[1000]"
           />
           <motion.div
             initial={{ y: "100%" }}
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl z-50 max-h-[90vh] overflow-y-auto"
+            className="fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl z-[1001] max-h-[90vh] overflow-y-auto shadow-2xl"
           >
             <div className="sticky top-0 bg-background z-10 px-6 py-4 border-b border-border flex items-center justify-between">
               <h2 className="text-xl font-semibold text-foreground">Criar uma Jam</h2>

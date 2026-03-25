@@ -1808,7 +1808,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                         opacity: 0
                     },
                     onClick: onClose,
-                    className: "fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50"
+                    className: "fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[1000]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/chat-panel.tsx",
                     lineNumber: 67,
@@ -1829,7 +1829,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                         damping: 25,
                         stiffness: 200
                     },
-                    className: "fixed right-0 top-0 bottom-0 w-full max-w-md bg-background z-50 flex flex-col shadow-2xl",
+                    className: "fixed right-0 top-0 bottom-0 w-full max-w-md bg-background z-[1001] flex flex-col shadow-2xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "flex items-center gap-3 p-4 border-b border-border",
@@ -2318,7 +2318,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                         opacity: 0
                     },
                     onClick: onClose,
-                    className: "fixed inset-0 bg-foreground/20 backdrop-blur-sm z-50"
+                    className: "fixed inset-0 bg-foreground/20 backdrop-blur-sm z-[1000]"
                 }, void 0, false, {
                     fileName: "[project]/src/components/create-jam-modal.tsx",
                     lineNumber: 142,
@@ -2339,7 +2339,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                         damping: 25,
                         stiffness: 200
                     },
-                    className: "fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl z-50 max-h-[90vh] overflow-y-auto",
+                    className: "fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl z-[1001] max-h-[90vh] overflow-y-auto shadow-2xl",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "sticky top-0 bg-background z-10 px-6 py-4 border-b border-border flex items-center justify-between",

@@ -7,6 +7,7 @@ __turbopack_context__.v({
   "map": "map-view-module__XaUgyq__map",
   "marker": "map-view-module__XaUgyq__marker",
   "markerInner": "map-view-module__XaUgyq__markerInner",
+  "markerLabel": "map-view-module__XaUgyq__markerLabel",
   "popup": "map-view-module__XaUgyq__popup",
   "popupMeta": "map-view-module__XaUgyq__popupMeta",
   "popupTitle": "map-view-module__XaUgyq__popupTitle",
@@ -30,12 +31,17 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-// Custom marker icon
-const createJamIcon = (icon)=>{
-    const markerContent = icon ?? "•";
+const getMarkerLabel = (jam)=>{
+    if (jam.icon) {
+        return jam.icon.slice(0, 1).toUpperCase();
+    }
+    return jam.title.trim().slice(0, 1).toUpperCase() || "J";
+};
+const createJamIcon = (jam)=>{
+    const markerContent = getMarkerLabel(jam);
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].divIcon({
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].marker,
-        html: `<div class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].markerInner}">${markerContent}</div>`,
+        html: `<div class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].markerInner}"><span class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].markerLabel}">${markerContent}</span></div>`,
         iconSize: [
             40,
             40
@@ -116,7 +122,7 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
             jams.forEach({
                 "MapView.useEffect": (jam)=>{
                     const marker = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].marker(jam.pos, {
-                        icon: createJamIcon(jam.icon)
+                        icon: createJamIcon(jam)
                     }).addTo(map);
                     marker.bindPopup(`
         <div class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].popup}">
@@ -186,12 +192,12 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                 children: "A carregar mapa..."
             }, void 0, false, {
                 fileName: "[project]/src/components/map-view.tsx",
-                lineNumber: 142,
+                lineNumber: 149,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/map-view.tsx",
-            lineNumber: 141,
+            lineNumber: 148,
             columnNumber: 7
         }, this);
     }
@@ -224,7 +230,7 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].map
     }, void 0, false, {
         fileName: "[project]/src/components/map-view.tsx",
-        lineNumber: 161,
+        lineNumber: 168,
         columnNumber: 10
     }, this);
 }

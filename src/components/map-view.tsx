@@ -5,13 +5,20 @@ import L, { type LeafletMouseEvent, type Map as LeafletMap, type Marker as Leafl
 import { Jam } from "@/lib/types";
 import styles from "./map-view.module.css";
 
-// Custom marker icon
-const createJamIcon = (icon: string | null) => {
-  const markerContent = icon ?? "•";
+const getMarkerLabel = (jam: Jam) => {
+  if (jam.icon) {
+    return jam.icon.slice(0, 1).toUpperCase();
+  }
+
+  return jam.title.trim().slice(0, 1).toUpperCase() || "J";
+};
+
+const createJamIcon = (jam: Jam) => {
+  const markerContent = getMarkerLabel(jam);
 
   return L.divIcon({
     className: styles.marker,
-    html: `<div class="${styles.markerInner}">${markerContent}</div>`,
+    html: `<div class="${styles.markerInner}"><span class="${styles.markerLabel}">${markerContent}</span></div>`,
     iconSize: [40, 40],
     iconAnchor: [20, 40],
     popupAnchor: [0, -40],
@@ -83,7 +90,7 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
 
     jams.forEach((jam) => {
       const marker = L.marker(jam.pos, {
-        icon: createJamIcon(jam.icon),
+        icon: createJamIcon(jam),
       }).addTo(map);
 
       marker.bindPopup(`

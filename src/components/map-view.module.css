@@ -27,11 +27,14 @@
   border-radius: 50% 50% 50% 0;
   background: hsl(24 95% 53%);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
   transform: rotate(-45deg);
 }
 
-.markerInner > * {
+.markerLabel {
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1;
   transform: rotate(45deg);
 }
 
