@@ -2,9 +2,10 @@
   "[project]/src/components/map-view.tsx [app-client] (ecmascript, next/dynamic entry)": {
     "id": "[project]/src/components/map-view.tsx [app-client] (ecmascript, next/dynamic entry)",
     "files": [
-      "static/chunks/node_modules_0isomg1._.js",
-      "static/chunks/src_components_map-view_tsx_0q_o3ff._.js",
-      "static/chunks/src_components_map-view_tsx_01.-vgd._.js"
+      "static/chunks/node_modules_leaflet_dist_leaflet-src_0n13733.js",
+      "static/chunks/src_components_0tami.6._.js",
+      "static/chunks/src_components_map-view_module_036kcie.css",
+      "static/chunks/src_components_map-view_tsx_00c.dhy._.js"
     ]
   }
 }

@@ -1,0 +1,215 @@
+/* [project]/src/components/header.module.css [app-client] (css) */
+.header-module__3iWRfG__header {
+  top: calc(var(--spacing, .25rem) * 0);
+  right: calc(var(--spacing, .25rem) * 0);
+  left: calc(var(--spacing, .25rem) * 0);
+  z-index: 40;
+  border-bottom-style: var(--tw-border-style);
+  border-bottom-width: 1px;
+  border-color: hsl(var(--border));
+  background-color: hsl(var(--background));
+  position: fixed;
+}
+
+@supports (color: color-mix(in lab, red, red)) {
+  .header-module__3iWRfG__header {
+    background-color: color-mix(in oklab, hsl(var(--background)) 80%, transparent);
+  }
+}
+
+.header-module__3iWRfG__header {
+  --tw-backdrop-blur: blur(var(--blur-lg, 16px));
+  -webkit-backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+  backdrop-filter: var(--tw-backdrop-blur, ) var(--tw-backdrop-brightness, ) var(--tw-backdrop-contrast, ) var(--tw-backdrop-grayscale, ) var(--tw-backdrop-hue-rotate, ) var(--tw-backdrop-invert, ) var(--tw-backdrop-opacity, ) var(--tw-backdrop-saturate, ) var(--tw-backdrop-sepia, );
+}
+
+.header-module__3iWRfG__inner {
+  max-width: var(--breakpoint-xl, 80rem);
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+  padding-block: calc(var(--spacing, .25rem) * 3);
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: auto;
+  display: flex;
+}
+
+.header-module__3iWRfG__brand {
+  align-items: center;
+  gap: calc(var(--spacing, .25rem) * 3);
+  display: flex;
+}
+
+.header-module__3iWRfG__avatarWrap {
+  position: relative;
+}
+
+.header-module__3iWRfG__avatar {
+  height: calc(var(--spacing, .25rem) * 10);
+  width: calc(var(--spacing, .25rem) * 10);
+  background-color: hsl(var(--secondary));
+  font-size: var(--text-lg, 1.125rem);
+  line-height: var(--tw-leading, var(--text-lg--line-height, calc(1.75 / 1.125)));
+  --tw-font-weight: var(--font-weight-semibold, 600);
+  font-weight: var(--font-weight-semibold, 600);
+  color: hsl(var(--secondary-foreground));
+  border-radius: 3.40282e38px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.header-module__3iWRfG__statusDot {
+  right: calc(var(--spacing, .25rem) * -.5);
+  bottom: calc(var(--spacing, .25rem) * -.5);
+  height: calc(var(--spacing, .25rem) * 3.5);
+  width: calc(var(--spacing, .25rem) * 3.5);
+  border-style: var(--tw-border-style);
+  border-width: 2px;
+  border-color: hsl(var(--background));
+  border-radius: 3.40282e38px;
+  position: absolute;
+}
+
+.header-module__3iWRfG__title {
+  font-size: var(--text-xl, 1.25rem);
+  line-height: var(--tw-leading, var(--text-xl--line-height, calc(1.75 / 1.25)));
+  --tw-font-weight: var(--font-weight-bold, 700);
+  font-weight: var(--font-weight-bold, 700);
+  --tw-tracking: var(--tracking-tight, -.025em);
+  letter-spacing: var(--tracking-tight, -.025em);
+  color: hsl(var(--foreground));
+}
+
+.header-module__3iWRfG__actions {
+  align-items: center;
+  gap: calc(var(--spacing, .25rem) * 2);
+  display: flex;
+}
+
+.header-module__3iWRfG__iconButton {
+  border-radius: calc(var(--radius) + 4px);
+  background-color: hsl(var(--secondary));
+  padding: calc(var(--spacing, .25rem) * 2.5);
+  color: hsl(var(--foreground));
+  transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function, cubic-bezier(.4, 0, .2, 1)));
+  transition-duration: var(--tw-duration, var(--default-transition-duration, .15s));
+  position: relative;
+}
+
+@media (hover: hover) {
+  .header-module__3iWRfG__iconButton:hover {
+    background-color: hsl(var(--secondary));
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .header-module__3iWRfG__iconButton:hover {
+      background-color: color-mix(in oklab, hsl(var(--secondary)) 80%, transparent);
+    }
+  }
+}
+
+.header-module__3iWRfG__notificationDot {
+  top: calc(var(--spacing, .25rem) * 1.5);
+  right: calc(var(--spacing, .25rem) * 1.5);
+  height: calc(var(--spacing, .25rem) * 2);
+  width: calc(var(--spacing, .25rem) * 2);
+  background-color: hsl(var(--destructive));
+  border-radius: 3.40282e38px;
+  position: absolute;
+}
+
+.header-module__3iWRfG__cta {
+  align-items: center;
+  gap: calc(var(--spacing, .25rem) * 2);
+  border-radius: calc(var(--radius) + 4px);
+  background-color: hsl(var(--primary));
+  padding-inline: calc(var(--spacing, .25rem) * 4);
+  padding-block: calc(var(--spacing, .25rem) * 2.5);
+  --tw-font-weight: var(--font-weight-medium, 500);
+  font-weight: var(--font-weight-medium, 500);
+  color: hsl(var(--primary-foreground));
+  transition-property: opacity;
+  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function, cubic-bezier(.4, 0, .2, 1)));
+  transition-duration: var(--tw-duration, var(--default-transition-duration, .15s));
+  display: flex;
+}
+
+@media (hover: hover) {
+  .header-module__3iWRfG__cta:hover {
+    opacity: .9;
+  }
+}
+
+.header-module__3iWRfG__ctaLabel {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .header-module__3iWRfG__ctaLabel {
+    display: inline;
+  }
+}
+
+@property --tw-border-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
+
+@property --tw-backdrop-blur {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-brightness {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-contrast {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-grayscale {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-hue-rotate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-invert {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-opacity {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-saturate {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false
+}
+
+@property --tw-tracking {
+  syntax: "*";
+  inherits: false
+}
+
+/*# sourceMappingURL=src_components_header_module_css_0w3-wzy._.single.css.map*/

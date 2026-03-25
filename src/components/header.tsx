@@ -3,6 +3,7 @@
 import { User } from "@/lib/types";
 import { Plus, Bell } from "lucide-react";
 import { cn } from "@/lib/utils";
+import styles from "./header.module.css";
 
 interface HeaderProps {
   user: User;
@@ -19,43 +20,41 @@ const statusColors = {
 
 export default function Header({ user, onCreateJam, hasNotifications }: HeaderProps) {
   return (
-    <header className="fixed top-0 left-0 right-0 bg-background/80 backdrop-blur-lg border-b border-border z-40">
-      <div className="flex items-center justify-between px-4 py-3 max-w-screen-xl mx-auto">
-        {/* Logo & User */}
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-lg font-semibold text-secondary-foreground">
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <div className={styles.brand}>
+          <div className={styles.avatarWrap}>
+            <div className={styles.avatar}>
               {user.name.charAt(0)}
             </div>
             <div
               className={cn(
-                "absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-2 border-background",
+                styles.statusDot,
                 statusColors[user.status]
               )}
             />
           </div>
           <div>
-            <h1 className="text-xl font-bold text-foreground tracking-tight">Jammy</h1>
+            <h1 className={styles.title}>Jammy</h1>
           </div>
         </div>
 
-        {/* Actions */}
-        <div className="flex items-center gap-2">
+        <div className={styles.actions}>
           <button
-            className="relative p-2.5 rounded-xl bg-secondary hover:bg-secondary/80 transition-colors"
+            className={styles.iconButton}
             aria-label="Notifications"
           >
-            <Bell size={20} className="text-foreground" />
+            <Bell size={20} />
             {hasNotifications && (
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-destructive" />
+              <span className={styles.notificationDot} />
             )}
           </button>
           <button
             onClick={onCreateJam}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
+            className={styles.cta}
           >
             <Plus size={20} />
-            <span className="hidden sm:inline">New Jam</span>
+            <span className={styles.ctaLabel}>New Jam</span>
           </button>
         </div>
       </div>

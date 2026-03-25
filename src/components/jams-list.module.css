@@ -1,0 +1,33 @@
+@reference "../app/globals.css";
+
+.empty {
+  @apply flex h-full flex-col items-center justify-center p-8 text-muted-foreground;
+}
+
+.emptyIcon {
+  @apply mb-4 opacity-50;
+}
+
+.emptyTitle {
+  @apply text-lg font-medium text-foreground;
+}
+
+.emptyText {
+  @apply mt-1 text-center text-sm;
+}
+
+.list {
+  @apply space-y-6 p-4 pb-24;
+}
+
+.sectionTitle {
+  @apply mb-3 flex items-center gap-2 px-1 text-sm font-medium text-muted-foreground;
+}
+
+.cards {
+  @apply space-y-3;
+}
+
+.pastCards {
+  @apply space-y-3 opacity-70;
+}

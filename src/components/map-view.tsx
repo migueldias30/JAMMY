@@ -3,12 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import L, { type LeafletMouseEvent, type Map as LeafletMap, type Marker as LeafletMarker } from "leaflet";
 import { Jam } from "@/lib/types";
+import styles from "./map-view.module.css";
 
 // Custom marker icon
 const createJamIcon = (icon: string | null) => {
   return L.divIcon({
-    className: "jam-marker",
-    html: `<div class="jam-marker-inner">${icon || ""}</div>`,
+    className: styles.marker,
+    html: `<div class="${styles.markerInner}">${icon || ""}</div>`,
     iconSize: [40, 40],
     iconAnchor: [20, 40],
     popupAnchor: [0, -40],
@@ -80,9 +81,9 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
       }).addTo(map);
 
       marker.bindPopup(`
-        <div class="min-width-[200px] p-1">
-          <h3 style="font-weight:600;margin-bottom:8px;">${jam.title}</h3>
-          <div style="display:grid;gap:6px;font-size:14px;color:#6b7280;">
+        <div class="${styles.popup}">
+          <h3 class="${styles.popupTitle}">${jam.title}</h3>
+          <div class="${styles.popupMeta}">
             <div>${jam.location}</div>
             <div>${formatDate(jam.dateTime)}</div>
             <div>${jam.duration}</div>
@@ -118,8 +119,8 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
 
   if (!isMounted) {
     return (
-      <div className="flex items-center justify-center h-full bg-muted">
-        <div className="animate-pulse text-muted-foreground">Loading map...</div>
+      <div className={styles.loadingState}>
+        <div className={styles.loadingText}>Loading map...</div>
       </div>
     );
   }
@@ -138,31 +139,5 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
     return date.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
   };
 
-  return (
-    <>
-      <style jsx global>{`
-        .jam-marker {
-          background: transparent;
-          border: none;
-        }
-        .jam-marker-inner {
-          width: 40px;
-          height: 40px;
-          background: hsl(24 95% 53%);
-          border-radius: 50% 50% 50% 0;
-          transform: rotate(-45deg);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-          font-size: 18px;
-          border: 3px solid white;
-        }
-        .jam-marker-inner > * {
-          transform: rotate(45deg);
-        }
-      `}</style>
-      <div ref={mapElementRef} className="h-full w-full z-0" />
-    </>
-  );
+  return <div ref={mapElementRef} className={styles.map} />;
 }

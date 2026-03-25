@@ -3,6 +3,7 @@
 import { Jam } from "@/lib/types";
 import { Calendar, Clock, Users, MapPin, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import styles from "./jam-card.module.css";
 
 interface JamCardProps {
   jam: Jam;
@@ -31,35 +32,35 @@ export default function JamCard({ jam, onSelect, onOpenChat, isAttending, compac
   return (
     <div
       className={cn(
-        "bg-card rounded-xl border border-border p-4 transition-all hover:shadow-md cursor-pointer",
-        isAttending && "border-primary/30 bg-primary/5"
+        styles.card,
+        isAttending && styles.cardAttending
       )}
       onClick={() => onSelect(jam)}
     >
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 mb-1">
-            {jam.icon && <span className="text-xl">{jam.icon}</span>}
-            <h3 className="font-semibold text-foreground truncate">{jam.title}</h3>
+      <div className={styles.row}>
+        <div className={styles.content}>
+          <div className={styles.titleRow}>
+            {jam.icon && <span className={styles.emoji}>{jam.icon}</span>}
+            <h3 className={styles.title}>{jam.title}</h3>
           </div>
           
           {!compact && (
-            <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-2">
+            <div className={styles.location}>
               <MapPin size={14} />
-              <span className="truncate">{jam.location}</span>
+              <span className={styles.truncate}>{jam.location}</span>
             </div>
           )}
           
-          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1.5">
-              <Calendar size={14} className={isUpcoming ? "text-primary" : ""} />
-              <span className={isUpcoming ? "text-foreground font-medium" : ""}>{formatDate(jam.dateTime)}</span>
+          <div className={styles.meta}>
+            <div className={styles.metaItem}>
+              <Calendar size={14} className={isUpcoming ? styles.metaHighlightIcon : undefined} />
+              <span className={isUpcoming ? styles.metaHighlightText : undefined}>{formatDate(jam.dateTime)}</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className={styles.metaItem}>
               <Clock size={14} />
               <span>{jam.duration}</span>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className={styles.metaItem}>
               <Users size={14} />
               <span>{jam.attendees.length}</span>
             </div>
@@ -71,16 +72,16 @@ export default function JamCard({ jam, onSelect, onOpenChat, isAttending, compac
             e.stopPropagation();
             onOpenChat(jam);
           }}
-          className="p-2 rounded-lg bg-secondary hover:bg-secondary/80 transition-colors"
+          className={styles.chatButton}
           aria-label="Open chat"
         >
-          <MessageCircle size={18} className="text-secondary-foreground" />
+          <MessageCircle size={18} className={styles.chatIcon} />
         </button>
       </div>
       
       {isAttending && (
-        <div className="mt-3 pt-3 border-t border-border">
-          <span className="text-xs font-medium text-primary">You're attending</span>
+        <div className={styles.attending}>
+          <span className={styles.attendingLabel}>You're attending</span>
         </div>
       )}
     </div>

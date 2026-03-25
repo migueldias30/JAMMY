@@ -1,0 +1,69 @@
+@reference "../app/globals.css";
+
+.card {
+  @apply cursor-pointer rounded-xl border border-border bg-card p-4 transition-all hover:shadow-md;
+}
+
+.cardAttending {
+  @apply border-primary/30 bg-primary/5;
+}
+
+.row {
+  @apply flex items-start justify-between gap-3;
+}
+
+.content {
+  @apply min-w-0 flex-1;
+}
+
+.titleRow {
+  @apply mb-1 flex items-center gap-2;
+}
+
+.emoji {
+  @apply text-xl;
+}
+
+.title {
+  @apply truncate font-semibold text-foreground;
+}
+
+.location {
+  @apply mb-2 flex items-center gap-1.5 text-sm text-muted-foreground;
+}
+
+.truncate {
+  @apply truncate;
+}
+
+.meta {
+  @apply flex flex-wrap items-center gap-3 text-sm text-muted-foreground;
+}
+
+.metaItem {
+  @apply flex items-center gap-1.5;
+}
+
+.metaHighlightIcon {
+  @apply text-primary;
+}
+
+.metaHighlightText {
+  @apply font-medium text-foreground;
+}
+
+.chatButton {
+  @apply rounded-lg bg-secondary p-2 transition-colors hover:bg-secondary/80;
+}
+
+.chatIcon {
+  @apply text-secondary-foreground;
+}
+
+.attending {
+  @apply mt-3 border-t border-border pt-3;
+}
+
+.attendingLabel {
+  @apply text-xs font-medium text-primary;
+}

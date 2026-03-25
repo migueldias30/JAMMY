@@ -1,0 +1,61 @@
+@reference "./globals.css";
+
+.page {
+  @apply min-h-screen bg-background;
+}
+
+.main {
+  @apply h-screen pt-16 pb-20;
+}
+
+.panel {
+  @apply flex h-full flex-col;
+}
+
+.toolbar {
+  @apply flex items-center justify-between border-b border-border bg-background px-4 py-2;
+}
+
+.toolbarTitle {
+  @apply text-sm font-medium text-muted-foreground;
+}
+
+.toggle {
+  @apply flex rounded-lg bg-secondary p-1;
+}
+
+.toggleButton {
+  @apply rounded-md p-2 transition-colors;
+}
+
+.toggleButtonActive {
+  @apply bg-card shadow-sm;
+}
+
+.toggleButtonIdle {
+  @apply hover:bg-card/50;
+}
+
+.toggleIconActive {
+  @apply text-primary;
+}
+
+.toggleIconIdle {
+  @apply text-muted-foreground;
+}
+
+.content {
+  @apply flex-1 overflow-hidden;
+}
+
+.scrollArea {
+  @apply h-full overflow-y-auto;
+}
+
+.loadingState {
+  @apply flex h-full items-center justify-center bg-muted;
+}
+
+.loadingText {
+  @apply animate-pulse text-muted-foreground;
+}

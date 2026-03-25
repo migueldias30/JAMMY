@@ -3,6 +3,7 @@
 import { Jam } from "@/lib/types";
 import JamCard from "./jam-card";
 import { Calendar, Clock } from "lucide-react";
+import styles from "./jams-list.module.css";
 
 interface JamsListProps {
   jams: Jam[];
@@ -24,10 +25,10 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
 
   if (jams.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center h-full text-muted-foreground p-8">
-        <Calendar size={48} className="mb-4 opacity-50" />
-        <p className="text-lg font-medium text-foreground">No jams yet</p>
-        <p className="text-sm text-center mt-1">
+      <div className={styles.empty}>
+        <Calendar size={48} className={styles.emptyIcon} />
+        <p className={styles.emptyTitle}>No jams yet</p>
+        <p className={styles.emptyText}>
           Create your first jam or wait for friends to invite you!
         </p>
       </div>
@@ -35,14 +36,14 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
   }
 
   return (
-    <div className="p-4 space-y-6 pb-24">
+    <div className={styles.list}>
       {upcomingJams.length > 0 && (
         <section>
-          <h2 className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-3 px-1">
+          <h2 className={styles.sectionTitle}>
             <Clock size={16} />
             Upcoming
           </h2>
-          <div className="space-y-3">
+          <div className={styles.cards}>
             {upcomingJams.map((jam) => (
               <JamCard
                 key={jam.id}
@@ -60,11 +61,11 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
 
       {pastJams.length > 0 && (
         <section>
-          <h2 className="flex items-center gap-2 text-sm font-medium text-muted-foreground mb-3 px-1">
+          <h2 className={styles.sectionTitle}>
             <Calendar size={16} />
             Past Jams
           </h2>
-          <div className="space-y-3 opacity-70">
+          <div className={styles.pastCards}>
             {pastJams.map((jam) => (
               <JamCard
                 key={jam.id}

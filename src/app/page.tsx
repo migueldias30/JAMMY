@@ -13,13 +13,14 @@ import ChatPanel from "@/components/chat-panel";
 import CreateJamModal from "@/components/create-jam-modal";
 import { List, Map as MapIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+import styles from "./page.module.css";
 
 // Dynamic import for map to avoid SSR issues with Leaflet
 const MapView = dynamic(() => import("@/components/map-view"), {
   ssr: false,
   loading: () => (
-    <div className="flex items-center justify-center h-full bg-muted">
-      <div className="animate-pulse text-muted-foreground">Loading map...</div>
+    <div className={styles.loadingState}>
+      <div className={styles.loadingText}>Loading map...</div>
     </div>
   ),
 });
@@ -112,46 +113,51 @@ export default function Home() {
   const pendingRequests = friendRequests.filter((r) => r.status === "pending");
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={styles.page}>
       <Header
         user={user}
         onCreateJam={() => setShowCreateJam(true)}
         hasNotifications={pendingRequests.length > 0}
       />
 
-      <main className="pt-16 pb-20 h-screen">
+      <main className={styles.main}>
         {activeTab === "map" && (
-          <div className="h-full flex flex-col">
-            {/* Toggle between map and list */}
-            <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-background">
-              <h2 className="text-sm font-medium text-muted-foreground">
+          <div className={styles.panel}>
+            <div className={styles.toolbar}>
+              <h2 className={styles.toolbarTitle}>
                 {jams.length} jams nearby
               </h2>
-              <div className="flex bg-secondary rounded-lg p-1">
+              <div className={styles.toggle}>
                 <button
                   onClick={() => setMapView("map")}
                   className={cn(
-                    "p-2 rounded-md transition-colors",
-                    mapView === "map" ? "bg-card shadow-sm" : "hover:bg-card/50"
+                    styles.toggleButton,
+                    mapView === "map" ? styles.toggleButtonActive : styles.toggleButtonIdle
                   )}
                   aria-label="Map view"
                 >
-                  <MapIcon size={18} className={mapView === "map" ? "text-primary" : "text-muted-foreground"} />
+                  <MapIcon
+                    size={18}
+                    className={mapView === "map" ? styles.toggleIconActive : styles.toggleIconIdle}
+                  />
                 </button>
                 <button
                   onClick={() => setMapView("list")}
                   className={cn(
-                    "p-2 rounded-md transition-colors",
-                    mapView === "list" ? "bg-card shadow-sm" : "hover:bg-card/50"
+                    styles.toggleButton,
+                    mapView === "list" ? styles.toggleButtonActive : styles.toggleButtonIdle
                   )}
                   aria-label="List view"
                 >
-                  <List size={18} className={mapView === "list" ? "text-primary" : "text-muted-foreground"} />
+                  <List
+                    size={18}
+                    className={mapView === "list" ? styles.toggleIconActive : styles.toggleIconIdle}
+                  />
                 </button>
               </div>
             </div>
             
-            <div className="flex-1 overflow-hidden">
+            <div className={styles.content}>
               {mapView === "map" ? (
                 <MapView
                   jams={jams}
@@ -163,7 +169,7 @@ export default function Home() {
                   selectedJam={selectedJam}
                 />
               ) : (
-                <div className="h-full overflow-y-auto">
+                <div className={styles.scrollArea}>
                   <JamsList
                     jams={jams}
                     currentUserId={user.uid}
@@ -180,7 +186,7 @@ export default function Home() {
         )}
 
         {activeTab === "social" && (
-          <div className="h-full overflow-hidden">
+          <div className={styles.content}>
             <SocialTab
               friends={friends}
               groups={groups}
@@ -193,7 +199,7 @@ export default function Home() {
         )}
 
         {activeTab === "mood" && (
-          <div className="h-full overflow-y-auto">
+          <div className={styles.scrollArea}>
             <MoodTab user={user} onStatusChange={handleStatusChange} />
           </div>
         )}
