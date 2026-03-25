@@ -1,0 +1,115 @@
+@reference "../app/globals.css";
+
+.screen {
+  @apply min-h-screen bg-[radial-gradient(circle_at_top,_rgba(249,115,22,0.20),_transparent_35%),linear-gradient(180deg,_hsl(var(--background)),_hsl(var(--secondary)))] px-4 py-8 text-foreground;
+}
+
+.shell {
+  @apply mx-auto flex min-h-[calc(100vh-4rem)] w-full max-w-5xl items-center justify-center;
+}
+
+.panel {
+  @apply grid w-full overflow-hidden rounded-[2rem] border border-border bg-background/90 shadow-2xl backdrop-blur md:grid-cols-[1.1fr_0.9fr];
+}
+
+.hero {
+  @apply flex flex-col justify-between gap-8 bg-[linear-gradient(180deg,_rgba(249,115,22,0.96),_rgba(234,88,12,0.92))] p-8 text-white md:p-10;
+}
+
+.brand {
+  @apply text-3xl font-bold tracking-tight;
+}
+
+.headline {
+  @apply max-w-md text-4xl font-semibold leading-tight;
+}
+
+.copy {
+  @apply max-w-md text-sm text-white/85;
+}
+
+.stats {
+  @apply grid gap-3 sm:grid-cols-3;
+}
+
+.stat {
+  @apply rounded-2xl border border-white/15 bg-white/10 p-4;
+}
+
+.statValue {
+  @apply text-2xl font-semibold;
+}
+
+.statLabel {
+  @apply mt-1 text-xs uppercase tracking-[0.18em] text-white/75;
+}
+
+.auth {
+  @apply flex flex-col justify-center gap-6 p-6 md:p-10;
+}
+
+.title {
+  @apply text-2xl font-semibold;
+}
+
+.subtitle {
+  @apply text-sm text-muted-foreground;
+}
+
+.tabs {
+  @apply grid grid-cols-2 rounded-2xl bg-secondary p-1;
+}
+
+.tab {
+  @apply rounded-xl px-4 py-3 text-sm font-medium transition-colors;
+}
+
+.tabActive {
+  @apply bg-background text-foreground shadow-sm;
+}
+
+.tabIdle {
+  @apply text-muted-foreground hover:text-foreground;
+}
+
+.form {
+  @apply space-y-4;
+}
+
+.field {
+  @apply space-y-2;
+}
+
+.label {
+  @apply text-sm font-medium text-foreground;
+}
+
+.input {
+  @apply w-full rounded-xl border border-border bg-secondary px-4 py-3 text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25;
+}
+
+.button {
+  @apply inline-flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+.googleButton {
+  @apply inline-flex w-full items-center justify-center gap-3 rounded-xl border border-border bg-background px-4 py-3 font-medium text-foreground transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:text-muted-foreground;
+}
+
+.hint {
+  @apply text-xs text-muted-foreground;
+}
+
+.error {
+  @apply rounded-xl border border-destructive/25 bg-destructive/10 px-4 py-3 text-sm text-destructive;
+}
+
+.divider {
+  @apply flex items-center gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  @apply h-px flex-1 bg-border;
+}

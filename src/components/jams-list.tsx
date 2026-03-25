@@ -8,11 +8,12 @@ import styles from "./jams-list.module.css";
 interface JamsListProps {
   jams: Jam[];
   currentUserId: string;
+  currentUserName: string;
   onSelectJam: (jam: Jam) => void;
   onOpenChat: (jam: Jam) => void;
 }
 
-export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat }: JamsListProps) {
+export default function JamsList({ jams, currentUserId, currentUserName, onSelectJam, onOpenChat }: JamsListProps) {
   const now = new Date();
   
   const upcomingJams = jams
@@ -51,7 +52,7 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
                 onSelect={onSelectJam}
                 onOpenChat={onOpenChat}
                 isAttending={jam.attendees.some(
-                  (a) => a === currentUserId || jam.creatorId === currentUserId
+                  (a) => a === currentUserName || jam.creatorId === currentUserId
                 )}
               />
             ))}
