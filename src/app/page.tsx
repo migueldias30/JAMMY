@@ -20,7 +20,7 @@ const MapView = dynamic(() => import("@/components/map-view"), {
   ssr: false,
   loading: () => (
     <div className={styles.loadingState}>
-      <div className={styles.loadingText}>Loading map...</div>
+      <div className={styles.loadingText}>A carregar mapa...</div>
     </div>
   ),
 });
@@ -125,7 +125,7 @@ export default function Home() {
           <div className={styles.panel}>
             <div className={styles.toolbar}>
               <h2 className={styles.toolbarTitle}>
-                {jams.length} jams nearby
+                {jams.length} jams por perto
               </h2>
               <div className={styles.toggle}>
                 <button
@@ -134,7 +134,7 @@ export default function Home() {
                     styles.toggleButton,
                     mapView === "map" ? styles.toggleButtonActive : styles.toggleButtonIdle
                   )}
-                  aria-label="Map view"
+                  aria-label="Vista de mapa"
                 >
                   <MapIcon
                     size={18}
@@ -147,7 +147,7 @@ export default function Home() {
                     styles.toggleButton,
                     mapView === "list" ? styles.toggleButtonActive : styles.toggleButtonIdle
                   )}
-                  aria-label="List view"
+                  aria-label="Vista de lista"
                 >
                   <List
                     size={18}

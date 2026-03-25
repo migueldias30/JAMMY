@@ -11,9 +11,9 @@ interface BottomNavProps {
 }
 
 const tabs = [
-  { id: "map" as TabType, label: "Map", icon: Map },
+  { id: "map" as TabType, label: "Mapa", icon: Map },
   { id: "social" as TabType, label: "Social", icon: Users },
-  { id: "mood" as TabType, label: "Mood", icon: Smile },
+  { id: "mood" as TabType, label: "Estado", icon: Smile },
 ];
 
 export default function BottomNav({ activeTab, onTabChange }: BottomNavProps) {

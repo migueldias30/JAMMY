@@ -7,9 +7,11 @@ import styles from "./map-view.module.css";
 
 // Custom marker icon
 const createJamIcon = (icon: string | null) => {
+  const markerContent = icon ?? "•";
+
   return L.divIcon({
     className: styles.marker,
-    html: `<div class="${styles.markerInner}">${icon || ""}</div>`,
+    html: `<div class="${styles.markerInner}">${markerContent}</div>`,
     iconSize: [40, 40],
     iconAnchor: [20, 40],
     popupAnchor: [0, -40],
@@ -57,6 +59,10 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
       });
     }
 
+    requestAnimationFrame(() => {
+      map.invalidateSize();
+    });
+
     mapRef.current = map;
 
     return () => {
@@ -98,6 +104,19 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
 
       markersRef.current[jam.id] = marker;
     });
+
+    if (jams.length === 1) {
+      map.flyTo(jams[0].pos, 14, { duration: 0.4 });
+      return;
+    }
+
+    if (jams.length > 1) {
+      const bounds = L.latLngBounds(jams.map((jam) => jam.pos));
+      map.fitBounds(bounds, {
+        padding: [32, 32],
+        maxZoom: 14,
+      });
+    }
   }, [jams, onJamSelect]);
 
   useEffect(() => {
@@ -120,7 +139,7 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
   if (!isMounted) {
     return (
       <div className={styles.loadingState}>
-        <div className={styles.loadingText}>Loading map...</div>
+        <div className={styles.loadingText}>A carregar mapa...</div>
       </div>
     );
   }
@@ -131,12 +150,12 @@ export default function MapView({ jams, onJamSelect, onMapClick, selectedJam }: 
     const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
     
     if (date.toDateString() === now.toDateString()) {
-      return `Today at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Hoje às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     }
     if (date.toDateString() === tomorrow.toDateString()) {
-      return `Tomorrow at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Amanhã às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     }
-    return date.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+    return date.toLocaleDateString("pt-PT", { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
   };
 
   return <div ref={mapElementRef} className={styles.map} />;

@@ -14,32 +14,32 @@ interface MoodTabProps {
 const statusOptions = [
   {
     status: "available" as const,
-    label: "Available",
-    description: "Ready to jam anytime",
+    label: "Disponível",
+    description: "Pronto para combinar algo",
     icon: Circle,
     color: "text-accent bg-accent/10 border-accent/30",
     dotColor: "bg-accent",
   },
   {
     status: "busy" as const,
-    label: "Busy",
-    description: "Working on something",
+    label: "Ocupado",
+    description: "Estou ocupado agora",
     icon: Briefcase,
     color: "text-destructive bg-destructive/10 border-destructive/30",
     dotColor: "bg-destructive",
   },
   {
     status: "away" as const,
-    label: "Away",
-    description: "Taking a break",
+    label: "Ausente",
+    description: "Fui fazer uma pausa",
     icon: Plane,
     color: "text-yellow-600 bg-yellow-500/10 border-yellow-500/30",
     dotColor: "bg-yellow-500",
   },
   {
     status: "offline" as const,
-    label: "Invisible",
-    description: "Appear offline",
+    label: "Invisível",
+    description: "Aparecer offline",
     icon: Moon,
     color: "text-muted-foreground bg-muted border-border",
     dotColor: "bg-muted-foreground/50",
@@ -47,12 +47,12 @@ const statusOptions = [
 ];
 
 const quickMessages = [
-  "Down for coffee",
-  "Let's grab beers",
-  "Free all day!",
-  "Working until 6",
-  "On vacation",
-  "Do not disturb",
+  "Apetece-me um café",
+  "Bora beber uma cerveja",
+  "Livre o dia todo!",
+  "A trabalhar até às 18h",
+  "De férias",
+  "Não incomodar",
 ];
 
 export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
@@ -97,14 +97,14 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
         </div>
 
         <div className={styles.section}>
-          <label className={styles.sectionLabel}>Status Message</label>
+          <label className={styles.sectionLabel}>Mensagem de estado</label>
           {isEditingMessage ? (
             <div className={styles.messageEdit}>
               <input
                 type="text"
                 value={customMessage}
                 onChange={(e) => setCustomMessage(e.target.value)}
-                placeholder="What's on your mind?"
+                placeholder="Em que estás a pensar?"
                 className={styles.input}
                 autoFocus
                 onKeyDown={(e) => e.key === "Enter" && handleMessageSubmit()}
@@ -113,7 +113,7 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
                 onClick={handleMessageSubmit}
                 className={styles.saveButton}
               >
-                Save
+                Guardar
               </button>
             </div>
           ) : (
@@ -122,7 +122,7 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
               className={styles.messageButton}
             >
               <span className={customMessage ? styles.messageTextActive : styles.messageTextIdle}>
-                {customMessage || "Add a status message..."}
+                {customMessage || "Adicionar mensagem de estado..."}
               </span>
               <Edit3 size={16} className={styles.messageIcon} />
             </button>
@@ -146,7 +146,7 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
       </div>
 
       <div className={styles.availability}>
-        <h3 className={styles.availabilityTitle}>Your Availability</h3>
+        <h3 className={styles.availabilityTitle}>A tua disponibilidade</h3>
         <div className={styles.availabilityGrid}>
           {statusOptions.map((option) => {
             const Icon = option.icon;
@@ -182,8 +182,8 @@ export default function MoodTab({ user, onStatusChange }: MoodTabProps) {
 
       <div className={styles.info}>
         <p>
-          Your status helps friends know when you're free to jam. They can see your availability
-          and status message when planning hangouts.
+          O teu estado ajuda os teus amigos a perceber quando estás disponível. Eles podem ver a
+          tua disponibilidade e mensagem de estado quando estiverem a combinar alguma coisa.
         </p>
       </div>
     </div>

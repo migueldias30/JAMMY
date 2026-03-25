@@ -20,11 +20,11 @@ export default function JamCard({ jam, onSelect, onOpenChat, isAttending, compac
     const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
     
     if (date.toDateString() === now.toDateString()) {
-      return `Today at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Hoje às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     } else if (date.toDateString() === tomorrow.toDateString()) {
-      return `Tomorrow at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Amanhã às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     }
-    return date.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric" });
+    return date.toLocaleDateString("pt-PT", { weekday: "short", month: "short", day: "numeric" });
   };
 
   const isUpcoming = new Date(jam.dateTime) > new Date();
@@ -73,7 +73,7 @@ export default function JamCard({ jam, onSelect, onOpenChat, isAttending, compac
             onOpenChat(jam);
           }}
           className={styles.chatButton}
-          aria-label="Open chat"
+          aria-label="Abrir chat"
         >
           <MessageCircle size={18} className={styles.chatIcon} />
         </button>
@@ -81,7 +81,7 @@ export default function JamCard({ jam, onSelect, onOpenChat, isAttending, compac
       
       {isAttending && (
         <div className={styles.attending}>
-          <span className={styles.attendingLabel}>You're attending</span>
+          <span className={styles.attendingLabel}>Vais participar</span>
         </div>
       )}
     </div>

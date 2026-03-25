@@ -5,21 +5,21 @@ export const mockUser: User = {
   name: "Miguel Dias",
   email: "miguel@jammy.app",
   status: "available",
-  statusMessage: "Down for coffee",
+  statusMessage: "Apetece-me um café",
 };
 
 export const mockFriends: Friend[] = [
-  { uid: "friend-1", name: "Ana Silva", status: "available", statusMessage: "Free all day!" },
-  { uid: "friend-2", name: "Pedro Costa", status: "busy", statusMessage: "Working until 6" },
-  { uid: "friend-3", name: "Sofia Martins", status: "away", statusMessage: "On vacation" },
-  { uid: "friend-4", name: "Tiago Ferreira", status: "available", statusMessage: "Let's grab beers" },
+  { uid: "friend-1", name: "Ana Silva", status: "available", statusMessage: "Livre o dia todo!" },
+  { uid: "friend-2", name: "Pedro Costa", status: "busy", statusMessage: "A trabalhar até às 18h" },
+  { uid: "friend-3", name: "Sofia Martins", status: "away", statusMessage: "De férias" },
+  { uid: "friend-4", name: "Tiago Ferreira", status: "available", statusMessage: "Bora beber uma cerveja" },
   { uid: "friend-5", name: "Maria Santos", status: "offline" },
 ];
 
 export const mockGroups: Group[] = [
-  { id: "group-1", name: "College Crew", members: ["friend-1", "friend-2", "friend-4"], creatorId: "user-1" },
-  { id: "group-2", name: "Work Friends", members: ["friend-2", "friend-3"], creatorId: "user-1" },
-  { id: "group-3", name: "Football Squad", members: ["friend-1", "friend-4", "friend-5"], creatorId: "friend-1" },
+  { id: "group-1", name: "Pessoal da Faculdade", members: ["friend-1", "friend-2", "friend-4"], creatorId: "user-1" },
+  { id: "group-2", name: "Amigos do Trabalho", members: ["friend-2", "friend-3"], creatorId: "user-1" },
+  { id: "group-3", name: "Equipa de Futebol", members: ["friend-1", "friend-4", "friend-5"], creatorId: "friend-1" },
 ];
 
 const now = new Date();
@@ -29,8 +29,8 @@ const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
 export const mockJams: Jam[] = [
   {
     id: "jam-1",
-    title: "Coffee at Fabrica",
-    location: "Fabrica Coffee Roasters, Lisbon",
+    title: "Café na Fábrica",
+    location: "Fábrica Coffee Roasters, Lisboa",
     pos: [38.7169, -9.1399],
     dateTime: new Date(now.getTime() + 2 * 60 * 60 * 1000).toISOString(),
     duration: "1h",
@@ -43,8 +43,8 @@ export const mockJams: Jam[] = [
   },
   {
     id: "jam-2",
-    title: "Beers at Pensao Amor",
-    location: "Pensao Amor, Cais do Sodre",
+    title: "Cervejas no Pensão Amor",
+    location: "Pensão Amor, Cais do Sodré",
     pos: [38.7072, -9.1456],
     dateTime: tomorrow.toISOString(),
     duration: "3h",
@@ -57,7 +57,7 @@ export const mockJams: Jam[] = [
   },
   {
     id: "jam-3",
-    title: "Football Match",
+    title: "Jogo de Futebol",
     location: "Campo de Jogos, Benfica",
     pos: [38.7523, -9.1849],
     dateTime: nextWeek.toISOString(),
@@ -77,7 +77,7 @@ export const mockMessages: Message[] = [
     jamId: "jam-1",
     userId: "user-1",
     userName: "Miguel Dias",
-    content: "Hey! Who's coming?",
+    content: "Olá! Quem vem?",
     timestamp: new Date(now.getTime() - 30 * 60 * 1000).toISOString(),
   },
   {
@@ -85,7 +85,7 @@ export const mockMessages: Message[] = [
     jamId: "jam-1",
     userId: "friend-1",
     userName: "Ana Silva",
-    content: "I'll be there! Running a bit late though",
+    content: "Eu vou! Mas devo chegar um bocadinho atrasada.",
     timestamp: new Date(now.getTime() - 25 * 60 * 1000).toISOString(),
   },
   {
@@ -93,7 +93,7 @@ export const mockMessages: Message[] = [
     jamId: "jam-1",
     userId: "user-1",
     userName: "Miguel Dias",
-    content: "No worries, see you soon!",
+    content: "Sem stress, até já!",
     timestamp: new Date(now.getTime() - 20 * 60 * 1000).toISOString(),
   },
 ];

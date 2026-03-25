@@ -32,9 +32,10 @@ var _s = __turbopack_context__.k.signature();
 ;
 // Custom marker icon
 const createJamIcon = (icon)=>{
+    const markerContent = icon ?? "•";
     return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].divIcon({
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].marker,
-        html: `<div class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].markerInner}">${icon || ""}</div>`,
+        html: `<div class="${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].markerInner}">${markerContent}</div>`,
         iconSize: [
             40,
             40
@@ -84,6 +85,11 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                     }
                 }["MapView.useEffect"]);
             }
+            requestAnimationFrame({
+                "MapView.useEffect": ()=>{
+                    map.invalidateSize();
+                }
+            }["MapView.useEffect"]);
             mapRef.current = map;
             return ({
                 "MapView.useEffect": ()=>{
@@ -131,6 +137,24 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
                     markersRef.current[jam.id] = marker;
                 }
             }["MapView.useEffect"]);
+            if (jams.length === 1) {
+                map.flyTo(jams[0].pos, 14, {
+                    duration: 0.4
+                });
+                return;
+            }
+            if (jams.length > 1) {
+                const bounds = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$leaflet$2f$dist$2f$leaflet$2d$src$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].latLngBounds(jams.map({
+                    "MapView.useEffect.bounds": (jam)=>jam.pos
+                }["MapView.useEffect.bounds"]));
+                map.fitBounds(bounds, {
+                    padding: [
+                        32,
+                        32
+                    ],
+                    maxZoom: 14
+                });
+            }
         }
     }["MapView.useEffect"], [
         jams,
@@ -159,15 +183,15 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].loadingState,
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].loadingText,
-                children: "Loading map..."
+                children: "A carregar mapa..."
             }, void 0, false, {
                 fileName: "[project]/src/components/map-view.tsx",
-                lineNumber: 123,
+                lineNumber: 142,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/map-view.tsx",
-            lineNumber: 122,
+            lineNumber: 141,
             columnNumber: 7
         }, this);
     }
@@ -176,18 +200,18 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
         const now = new Date();
         const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
         if (date.toDateString() === now.toDateString()) {
-            return `Today at ${date.toLocaleTimeString([], {
+            return `Hoje às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         }
         if (date.toDateString() === tomorrow.toDateString()) {
-            return `Tomorrow at ${date.toLocaleTimeString([], {
+            return `Amanhã às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         }
-        return date.toLocaleDateString([], {
+        return date.toLocaleDateString("pt-PT", {
             weekday: "short",
             month: "short",
             day: "numeric",
@@ -200,7 +224,7 @@ function MapView({ jams, onJamSelect, onMapClick, selectedJam }) {
         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$map$2d$view$2e$module$2e$css__$5b$app$2d$client$5d$__$28$css__module$29$__["default"].map
     }, void 0, false, {
         fileName: "[project]/src/components/map-view.tsx",
-        lineNumber: 142,
+        lineNumber: 161,
         columnNumber: 10
     }, this);
 }

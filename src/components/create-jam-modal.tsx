@@ -29,7 +29,7 @@ const ICON_DISPLAY: Record<string, string> = {
   dance: "D",
 };
 
-const DURATIONS = ["30m", "1h", "2h", "3h", "4h", "Late"];
+const DURATIONS = ["30m", "1h", "2h", "3h", "4h", "Até tarde"];
 
 export default function CreateJamModal({
   isOpen,
@@ -90,7 +90,7 @@ export default function CreateJamModal({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.pos) {
-      alert("Please select a location on the map or search for an address.");
+      alert("Seleciona uma localização no mapa ou procura uma morada.");
       return;
     }
 
@@ -101,7 +101,7 @@ export default function CreateJamModal({
       location: formData.location,
       pos: formData.pos as [number, number],
       dateTime: fullDateTime.toISOString(),
-      duration: formData.duration === "Late" ? "Late" : formData.duration,
+      duration: formData.duration === "Até tarde" ? "Até tarde" : formData.duration,
       icon: formData.icon,
       privacy: formData.privacy,
       targetGroups: formData.targetGroups,
@@ -154,7 +154,7 @@ export default function CreateJamModal({
             className="fixed bottom-0 left-0 right-0 bg-background rounded-t-3xl z-50 max-h-[90vh] overflow-y-auto"
           >
             <div className="sticky top-0 bg-background z-10 px-6 py-4 border-b border-border flex items-center justify-between">
-              <h2 className="text-xl font-semibold text-foreground">Host a Jam</h2>
+              <h2 className="text-xl font-semibold text-foreground">Criar uma Jam</h2>
               <button onClick={onClose} className="p-2 rounded-lg hover:bg-secondary transition-colors">
                 <X size={20} className="text-foreground" />
               </button>
@@ -163,19 +163,19 @@ export default function CreateJamModal({
             <form onSubmit={handleSubmit} className="p-6 space-y-6">
               {/* Title */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">JAM TITLE</label>
+                <label className="text-sm font-medium text-muted-foreground">TÍTULO DA JAM</label>
                 <input
                   required
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="What's happening?"
+                  placeholder="O que vai acontecer?"
                   className="w-full px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
 
               {/* Location Search */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">LOCATION</label>
+                <label className="text-sm font-medium text-muted-foreground">LOCALIZAÇÃO</label>
                 <div className="flex gap-2">
                   <div className="relative flex-1">
                     <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
@@ -183,7 +183,7 @@ export default function CreateJamModal({
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
                       onKeyDown={(e) => e.key === "Enter" && (e.preventDefault(), handleSearch())}
-                      placeholder="Search for a place..."
+                      placeholder="Procurar um local..."
                       className="w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                     />
                   </div>
@@ -192,7 +192,7 @@ export default function CreateJamModal({
                     onClick={handleSearch}
                     className="px-4 py-3 rounded-xl bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
                   >
-                    {isSearching ? <Loader size={20} className="animate-spin" /> : "Find"}
+                    {isSearching ? <Loader size={20} className="animate-spin" /> : "Procurar"}
                   </button>
                 </div>
                 {searchResults.length > 0 && (
@@ -212,14 +212,14 @@ export default function CreateJamModal({
                 {formData.pos && (
                   <p className="flex items-center gap-1.5 text-sm text-accent">
                     <MapPin size={14} />
-                    Location set: {formData.pos[0].toFixed(4)}, {formData.pos[1].toFixed(4)}
+                    Local definido: {formData.pos[0].toFixed(4)}, {formData.pos[1].toFixed(4)}
                   </p>
                 )}
               </div>
 
               {/* Date & Time */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">WHEN</label>
+                <label className="text-sm font-medium text-muted-foreground">QUANDO</label>
                 <div className="flex gap-3">
                   <input
                     required
@@ -243,7 +243,7 @@ export default function CreateJamModal({
 
               {/* Duration */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">DURATION</label>
+                <label className="text-sm font-medium text-muted-foreground">DURAÇÃO</label>
                 <div className="flex flex-wrap gap-2">
                   {DURATIONS.map((d) => (
                     <button
@@ -265,7 +265,7 @@ export default function CreateJamModal({
 
               {/* Icon */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">ICON</label>
+                <label className="text-sm font-medium text-muted-foreground">ÍCONE</label>
                 <div className="flex flex-wrap gap-2">
                   {ICONS.map((icon) => (
                     <button
@@ -291,12 +291,12 @@ export default function CreateJamModal({
 
               {/* Privacy */}
               <div className="space-y-2">
-                <label className="text-sm font-medium text-muted-foreground">WHO CAN SEE</label>
+                <label className="text-sm font-medium text-muted-foreground">QUEM PODE VER</label>
                 <div className="flex gap-2">
                   {[
-                    { id: "public" as const, label: "Public", icon: Globe },
-                    { id: "all-friends" as const, label: "Friends", icon: UserCheck },
-                    { id: "groups" as const, label: "Groups", icon: Shield },
+                    { id: "public" as const, label: "Público", icon: Globe },
+                    { id: "all-friends" as const, label: "Amigos", icon: UserCheck },
+                    { id: "groups" as const, label: "Grupos", icon: Shield },
                   ].map((p) => (
                     <button
                       key={p.id}
@@ -319,7 +319,7 @@ export default function CreateJamModal({
               {/* Groups Selection */}
               {formData.privacy === "groups" && (
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-muted-foreground">SELECT GROUPS</label>
+                  <label className="text-sm font-medium text-muted-foreground">SELECIONAR GRUPOS</label>
                   <div className="flex flex-wrap gap-2">
                     {groups.length > 0 ? (
                       groups.map((group) => (
@@ -338,7 +338,7 @@ export default function CreateJamModal({
                         </button>
                       ))
                     ) : (
-                      <p className="text-sm text-muted-foreground">No groups found. Create one first!</p>
+                      <p className="text-sm text-muted-foreground">Não há grupos. Cria um primeiro!</p>
                     )}
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function CreateJamModal({
                 type="submit"
                 className="w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:opacity-90 transition-opacity"
               >
-                Post Jam
+                Publicar Jam
               </button>
             </form>
           </motion.div>

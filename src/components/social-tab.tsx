@@ -47,7 +47,7 @@ export default function SocialTab({
           )}
         >
           <UserPlus size={18} />
-          Friends
+          Amigos
           <span className={styles.count}>
             {friends.length}
           </span>
@@ -60,7 +60,7 @@ export default function SocialTab({
           )}
         >
           <Users size={18} />
-          Groups
+          Grupos
         </button>
         <button
           onClick={() => setActiveSubTab("requests")}
@@ -70,7 +70,7 @@ export default function SocialTab({
           )}
         >
           <Bell size={18} />
-          Requests
+          Pedidos
           {pendingRequests.length > 0 && (
             <span className={styles.badge}>
               {pendingRequests.length}
@@ -85,8 +85,8 @@ export default function SocialTab({
             {friends.length === 0 ? (
               <div className={styles.empty}>
                 <UserPlus size={48} className={styles.emptyIcon} />
-                <p>No friends yet</p>
-                <p className={styles.subtitle}>Add friends to start jamming together!</p>
+                <p>Ainda não tens amigos</p>
+                <p className={styles.subtitle}>Adiciona amigos para começarem a combinar jams!</p>
               </div>
             ) : (
               friends.map((friend) => (
@@ -127,7 +127,7 @@ export default function SocialTab({
               <div className={styles.createIconWrap}>
                 <Plus size={24} className="text-primary" />
               </div>
-              <span className={styles.createLabel}>Create New Group</span>
+              <span className={styles.createLabel}>Criar novo grupo</span>
             </button>
             {groups.map((group) => (
               <div
@@ -139,9 +139,7 @@ export default function SocialTab({
                 </div>
                 <div className={styles.body}>
                   <p className={styles.title}>{group.name}</p>
-                  <p className={styles.subtitle}>
-                    {group.members.length} members
-                  </p>
+                  <p className={styles.subtitle}>{group.members.length} membros</p>
                 </div>
                 <ChevronRight size={18} className={styles.chevron} />
               </div>
@@ -154,7 +152,7 @@ export default function SocialTab({
             {pendingRequests.length === 0 ? (
               <div className={styles.empty}>
                 <Bell size={48} className={styles.emptyIcon} />
-                <p>No pending requests</p>
+                <p>Não tens pedidos pendentes</p>
               </div>
             ) : (
               pendingRequests.map((request) => (
@@ -167,20 +165,20 @@ export default function SocialTab({
                   </div>
                   <div className={styles.body}>
                     <p className={styles.title}>{request.fromUserName}</p>
-                    <p className={styles.subtitle}>Wants to be your friend</p>
+                    <p className={styles.subtitle}>Quer adicionar-te como amigo</p>
                   </div>
                   <div className={styles.actions}>
                     <button
                       onClick={() => onAcceptRequest(request.id)}
                       className={styles.accept}
-                      aria-label="Accept"
+                      aria-label="Aceitar"
                     >
                       <Check size={18} />
                     </button>
                     <button
                       onClick={() => onRejectRequest(request.id)}
                       className={styles.reject}
-                      aria-label="Reject"
+                      aria-label="Rejeitar"
                     >
                       <X size={18} />
                     </button>

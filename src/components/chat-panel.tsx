@@ -43,7 +43,7 @@ export default function ChatPanel({
   };
 
   const formatTime = (timestamp: string) => {
-    return new Date(timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    return new Date(timestamp).toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" });
   };
 
   const formatDate = (dateString: string) => {
@@ -52,11 +52,11 @@ export default function ChatPanel({
     const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
 
     if (date.toDateString() === now.toDateString()) {
-      return `Today at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Hoje às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     } else if (date.toDateString() === tomorrow.toDateString()) {
-      return `Tomorrow at ${date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`;
+      return `Amanhã às ${date.toLocaleTimeString("pt-PT", { hour: "2-digit", minute: "2-digit" })}`;
     }
-    return date.toLocaleDateString([], { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
+    return date.toLocaleDateString("pt-PT", { weekday: "short", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
   };
 
   return (
@@ -106,7 +106,7 @@ export default function ChatPanel({
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Users size={14} />
-                  <span>{jam.attendees.length} going</span>
+                  <span>{jam.attendees.length} a participar</span>
                 </div>
               </div>
               <div className="mt-3 flex gap-2">
@@ -116,7 +116,7 @@ export default function ChatPanel({
                     className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary text-secondary-foreground hover:bg-destructive hover:text-destructive-foreground transition-colors text-sm font-medium"
                   >
                     <LogOut size={16} />
-                    Leave Jam
+                    Sair da jam
                   </button>
                 ) : (
                   <button
@@ -124,7 +124,7 @@ export default function ChatPanel({
                     className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-sm font-medium"
                   >
                     <UserPlus size={16} />
-                    Join Jam
+                    Participar
                   </button>
                 )}
               </div>
@@ -134,8 +134,8 @@ export default function ChatPanel({
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.length === 0 ? (
                 <div className="flex flex-col items-center justify-center h-full text-muted-foreground">
-                  <p className="text-center">No messages yet</p>
-                  <p className="text-sm">Be the first to say something!</p>
+                  <p className="text-center">Ainda não há mensagens</p>
+                  <p className="text-sm">Sê o primeiro a dizer alguma coisa!</p>
                 </div>
               ) : (
                 messages.map((message) => {
@@ -178,7 +178,7 @@ export default function ChatPanel({
                   value={newMessage}
                   onChange={(e) => setNewMessage(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                  placeholder="Type a message..."
+                  placeholder="Escreve uma mensagem..."
                   className="flex-1 px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <button

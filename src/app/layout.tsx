@@ -3,8 +3,8 @@ import "./globals.css";
 import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
-  title: "Jammy - Meet Your Friends",
-  description: "Organize informal meetups with friends. Create jams, join events, and connect with your crew.",
+  title: "Jammy - Encontra os teus amigos",
+  description: "Organiza encontros informais com amigos. Cria jams, participa em eventos e combina programas com a tua malta.",
 };
 
 export const viewport: Viewport = {
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="pt-PT">
       <body className="font-sans antialiased">
         {children}
       </body>

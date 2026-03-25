@@ -21,32 +21,32 @@ const mockUser = {
     name: "Miguel Dias",
     email: "miguel@jammy.app",
     status: "available",
-    statusMessage: "Down for coffee"
+    statusMessage: "Apetece-me um café"
 };
 const mockFriends = [
     {
         uid: "friend-1",
         name: "Ana Silva",
         status: "available",
-        statusMessage: "Free all day!"
+        statusMessage: "Livre o dia todo!"
     },
     {
         uid: "friend-2",
         name: "Pedro Costa",
         status: "busy",
-        statusMessage: "Working until 6"
+        statusMessage: "A trabalhar até às 18h"
     },
     {
         uid: "friend-3",
         name: "Sofia Martins",
         status: "away",
-        statusMessage: "On vacation"
+        statusMessage: "De férias"
     },
     {
         uid: "friend-4",
         name: "Tiago Ferreira",
         status: "available",
-        statusMessage: "Let's grab beers"
+        statusMessage: "Bora beber uma cerveja"
     },
     {
         uid: "friend-5",
@@ -57,7 +57,7 @@ const mockFriends = [
 const mockGroups = [
     {
         id: "group-1",
-        name: "College Crew",
+        name: "Pessoal da Faculdade",
         members: [
             "friend-1",
             "friend-2",
@@ -67,7 +67,7 @@ const mockGroups = [
     },
     {
         id: "group-2",
-        name: "Work Friends",
+        name: "Amigos do Trabalho",
         members: [
             "friend-2",
             "friend-3"
@@ -76,7 +76,7 @@ const mockGroups = [
     },
     {
         id: "group-3",
-        name: "Football Squad",
+        name: "Equipa de Futebol",
         members: [
             "friend-1",
             "friend-4",
@@ -91,8 +91,8 @@ const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
 const mockJams = [
     {
         id: "jam-1",
-        title: "Coffee at Fabrica",
-        location: "Fabrica Coffee Roasters, Lisbon",
+        title: "Café na Fábrica",
+        location: "Fábrica Coffee Roasters, Lisboa",
         pos: [
             38.7169,
             -9.1399
@@ -111,8 +111,8 @@ const mockJams = [
     },
     {
         id: "jam-2",
-        title: "Beers at Pensao Amor",
-        location: "Pensao Amor, Cais do Sodre",
+        title: "Cervejas no Pensão Amor",
+        location: "Pensão Amor, Cais do Sodré",
         pos: [
             38.7072,
             -9.1456
@@ -131,7 +131,7 @@ const mockJams = [
     },
     {
         id: "jam-3",
-        title: "Football Match",
+        title: "Jogo de Futebol",
         location: "Campo de Jogos, Benfica",
         pos: [
             38.7523,
@@ -159,7 +159,7 @@ const mockMessages = [
         jamId: "jam-1",
         userId: "user-1",
         userName: "Miguel Dias",
-        content: "Hey! Who's coming?",
+        content: "Olá! Quem vem?",
         timestamp: new Date(now.getTime() - 30 * 60 * 1000).toISOString()
     },
     {
@@ -167,7 +167,7 @@ const mockMessages = [
         jamId: "jam-1",
         userId: "friend-1",
         userName: "Ana Silva",
-        content: "I'll be there! Running a bit late though",
+        content: "Eu vou! Mas devo chegar um bocadinho atrasada.",
         timestamp: new Date(now.getTime() - 25 * 60 * 1000).toISOString()
     },
     {
@@ -175,7 +175,7 @@ const mockMessages = [
         jamId: "jam-1",
         userId: "user-1",
         userName: "Miguel Dias",
-        content: "No worries, see you soon!",
+        content: "Sem stress, até já!",
         timestamp: new Date(now.getTime() - 20 * 60 * 1000).toISOString()
     }
 ];
@@ -302,7 +302,7 @@ function Header({ user, onCreateJam, hasNotifications }) {
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].iconButton,
-                            "aria-label": "Notifications",
+                            "aria-label": "Notificações",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Bell$3e$__["Bell"], {
                                     size: 20
@@ -337,7 +337,7 @@ function Header({ user, onCreateJam, hasNotifications }) {
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$header$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].ctaLabel,
-                                    children: "New Jam"
+                                    children: "Nova Jam"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/header.tsx",
                                     lineNumber: 57,
@@ -401,7 +401,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$bottom$
 const tabs = [
     {
         id: "map",
-        label: "Map",
+        label: "Mapa",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Map$3e$__["Map"]
     },
     {
@@ -411,7 +411,7 @@ const tabs = [
     },
     {
         id: "mood",
-        label: "Mood",
+        label: "Estado",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$smile$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Smile$3e$__["Smile"]
     }
 ];
@@ -510,17 +510,17 @@ function JamCard({ jam, onSelect, onOpenChat, isAttending, compact }) {
         const now = new Date();
         const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
         if (date.toDateString() === now.toDateString()) {
-            return `Today at ${date.toLocaleTimeString([], {
+            return `Hoje às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         } else if (date.toDateString() === tomorrow.toDateString()) {
-            return `Tomorrow at ${date.toLocaleTimeString([], {
+            return `Amanhã às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         }
-        return date.toLocaleDateString([], {
+        return date.toLocaleDateString("pt-PT", {
             weekday: "short",
             month: "short",
             day: "numeric"
@@ -678,7 +678,7 @@ function JamCard({ jam, onSelect, onOpenChat, isAttending, compact }) {
                             onOpenChat(jam);
                         },
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jam$2d$card$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].chatButton,
-                        "aria-label": "Open chat",
+                        "aria-label": "Abrir chat",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"], {
                             size: 18,
                             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jam$2d$card$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].chatIcon
@@ -702,7 +702,7 @@ function JamCard({ jam, onSelect, onOpenChat, isAttending, compact }) {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jam$2d$card$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].attending,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jam$2d$card$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].attendingLabel,
-                    children: "You're attending"
+                    children: "Vais participar"
                 }, void 0, false, {
                     fileName: "[project]/src/components/jam-card.tsx",
                     lineNumber: 84,
@@ -769,7 +769,7 @@ function JamsList({ jams, currentUserId, onSelectJam, onOpenChat }) {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jams$2d$list$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].emptyTitle,
-                    children: "No jams yet"
+                    children: "Ainda não há jams"
                 }, void 0, false, {
                     fileName: "[project]/src/components/jams-list.tsx",
                     lineNumber: 30,
@@ -777,7 +777,7 @@ function JamsList({ jams, currentUserId, onSelectJam, onOpenChat }) {
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$jams$2d$list$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].emptyText,
-                    children: "Create your first jam or wait for friends to invite you!"
+                    children: "Cria a tua primeira jam ou espera por um convite dos teus amigos."
                 }, void 0, false, {
                     fileName: "[project]/src/components/jams-list.tsx",
                     lineNumber: 31,
@@ -805,7 +805,7 @@ function JamsList({ jams, currentUserId, onSelectJam, onOpenChat }) {
                                 lineNumber: 43,
                                 columnNumber: 13
                             }, this),
-                            "Upcoming"
+                            "Próximas"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/jams-list.tsx",
@@ -847,7 +847,7 @@ function JamsList({ jams, currentUserId, onSelectJam, onOpenChat }) {
                                 lineNumber: 65,
                                 columnNumber: 13
                             }, this),
-                            "Past Jams"
+                            "Jams anteriores"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/jams-list.tsx",
@@ -968,7 +968,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                 lineNumber: 49,
                                 columnNumber: 11
                             }, this),
-                            "Friends",
+                            "Amigos",
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].count,
                                 children: friends.length
@@ -994,7 +994,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                 lineNumber: 62,
                                 columnNumber: 11
                             }, this),
-                            "Groups"
+                            "Grupos"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/social-tab.tsx",
@@ -1012,7 +1012,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                 lineNumber: 72,
                                 columnNumber: 11
                             }, this),
-                            "Requests",
+                            "Pedidos",
                             pendingRequests.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].badge,
                                 children: pendingRequests.length
@@ -1050,7 +1050,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    children: "No friends yet"
+                                    children: "Ainda não tens amigos"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-tab.tsx",
                                     lineNumber: 88,
@@ -1058,7 +1058,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].subtitle,
-                                    children: "Add friends to start jamming together!"
+                                    children: "Adiciona amigos para começarem a combinar jams!"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-tab.tsx",
                                     lineNumber: 89,
@@ -1164,7 +1164,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].createLabel,
-                                        children: "Create New Group"
+                                        children: "Criar novo grupo"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/social-tab.tsx",
                                         lineNumber: 130,
@@ -1209,7 +1209,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].subtitle,
                                                     children: [
                                                         group.members.length,
-                                                        " members"
+                                                        " membros"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/social-tab.tsx",
@@ -1227,7 +1227,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].chevron
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/social-tab.tsx",
-                                            lineNumber: 146,
+                                            lineNumber: 144,
                                             columnNumber: 17
                                         }, this)
                                     ]
@@ -1252,20 +1252,20 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                     className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].emptyIcon
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-tab.tsx",
-                                    lineNumber: 156,
+                                    lineNumber: 154,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    children: "No pending requests"
+                                    children: "Não tens pedidos pendentes"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/social-tab.tsx",
-                                    lineNumber: 157,
+                                    lineNumber: 155,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/social-tab.tsx",
-                            lineNumber: 155,
+                            lineNumber: 153,
                             columnNumber: 15
                         }, this) : pendingRequests.map((request)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].requestCard,
@@ -1275,7 +1275,7 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                         children: request.fromUserName.charAt(0)
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/social-tab.tsx",
-                                        lineNumber: 165,
+                                        lineNumber: 163,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1286,21 +1286,21 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                                 children: request.fromUserName
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-tab.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 167,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].subtitle,
-                                                children: "Wants to be your friend"
+                                                children: "Quer adicionar-te como amigo"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-tab.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 168,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/social-tab.tsx",
-                                        lineNumber: 168,
+                                        lineNumber: 166,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1309,50 +1309,50 @@ function SocialTab({ friends, groups, friendRequests, onAcceptRequest, onRejectR
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>onAcceptRequest(request.id),
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].accept,
-                                                "aria-label": "Accept",
+                                                "aria-label": "Aceitar",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Check$3e$__["Check"], {
                                                     size: 18
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-tab.tsx",
-                                                    lineNumber: 178,
+                                                    lineNumber: 176,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-tab.tsx",
-                                                lineNumber: 173,
+                                                lineNumber: 171,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>onRejectRequest(request.id),
                                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$social$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].reject,
-                                                "aria-label": "Reject",
+                                                "aria-label": "Rejeitar",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__["X"], {
                                                     size: 18
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/social-tab.tsx",
-                                                    lineNumber: 185,
+                                                    lineNumber: 183,
                                                     columnNumber: 23
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/social-tab.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 178,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/social-tab.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 170,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, request.id, true, {
                                 fileName: "[project]/src/components/social-tab.tsx",
-                                lineNumber: 161,
+                                lineNumber: 159,
                                 columnNumber: 17
                             }, this))
                     }, void 0, false, {
                         fileName: "[project]/src/components/social-tab.tsx",
-                        lineNumber: 153,
+                        lineNumber: 151,
                         columnNumber: 11
                     }, this)
                 ]
@@ -1431,44 +1431,44 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d
 const statusOptions = [
     {
         status: "available",
-        label: "Available",
-        description: "Ready to jam anytime",
+        label: "Disponível",
+        description: "Pronto para combinar algo",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Circle$3e$__["Circle"],
         color: "text-accent bg-accent/10 border-accent/30",
         dotColor: "bg-accent"
     },
     {
         status: "busy",
-        label: "Busy",
-        description: "Working on something",
+        label: "Ocupado",
+        description: "Estou ocupado agora",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$briefcase$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Briefcase$3e$__["Briefcase"],
         color: "text-destructive bg-destructive/10 border-destructive/30",
         dotColor: "bg-destructive"
     },
     {
         status: "away",
-        label: "Away",
-        description: "Taking a break",
+        label: "Ausente",
+        description: "Fui fazer uma pausa",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plane$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Plane$3e$__["Plane"],
         color: "text-yellow-600 bg-yellow-500/10 border-yellow-500/30",
         dotColor: "bg-yellow-500"
     },
     {
         status: "offline",
-        label: "Invisible",
-        description: "Appear offline",
+        label: "Invisível",
+        description: "Aparecer offline",
         icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"],
         color: "text-muted-foreground bg-muted border-border",
         dotColor: "bg-muted-foreground/50"
     }
 ];
 const quickMessages = [
-    "Down for coffee",
-    "Let's grab beers",
-    "Free all day!",
-    "Working until 6",
-    "On vacation",
-    "Do not disturb"
+    "Apetece-me um café",
+    "Bora beber uma cerveja",
+    "Livre o dia todo!",
+    "A trabalhar até às 18h",
+    "De férias",
+    "Não incomodar"
 ];
 function MoodTab({ user, onStatusChange }) {
     const [customMessage, setCustomMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(user.statusMessage || "");
@@ -1552,7 +1552,7 @@ function MoodTab({ user, onStatusChange }) {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].sectionLabel,
-                                children: "Status Message"
+                                children: "Mensagem de estado"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/mood-tab.tsx",
                                 lineNumber: 100,
@@ -1565,7 +1565,7 @@ function MoodTab({ user, onStatusChange }) {
                                         type: "text",
                                         value: customMessage,
                                         onChange: (e)=>setCustomMessage(e.target.value),
-                                        placeholder: "What's on your mind?",
+                                        placeholder: "Em que estás a pensar?",
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].input,
                                         autoFocus: true,
                                         onKeyDown: (e)=>e.key === "Enter" && handleMessageSubmit()
@@ -1577,7 +1577,7 @@ function MoodTab({ user, onStatusChange }) {
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                         onClick: handleMessageSubmit,
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].saveButton,
-                                        children: "Save"
+                                        children: "Guardar"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/mood-tab.tsx",
                                         lineNumber: 112,
@@ -1594,7 +1594,7 @@ function MoodTab({ user, onStatusChange }) {
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: customMessage ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].messageTextActive : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].messageTextIdle,
-                                        children: customMessage || "Add a status message..."
+                                        children: customMessage || "Adicionar mensagem de estado..."
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/mood-tab.tsx",
                                         lineNumber: 124,
@@ -1647,7 +1647,7 @@ function MoodTab({ user, onStatusChange }) {
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].availabilityTitle,
-                        children: "Your Availability"
+                        children: "A tua disponibilidade"
                     }, void 0, false, {
                         fileName: "[project]/src/components/mood-tab.tsx",
                         lineNumber: 149,
@@ -1707,7 +1707,7 @@ function MoodTab({ user, onStatusChange }) {
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$mood$2d$tab$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].info,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    children: "Your status helps friends know when you're free to jam. They can see your availability and status message when planning hangouts."
+                    children: "O teu estado ajuda os teus amigos a perceber quando estás disponível. Eles podem ver a tua disponibilidade e mensagem de estado quando estiverem a combinar alguma coisa."
                 }, void 0, false, {
                     fileName: "[project]/src/components/mood-tab.tsx",
                     lineNumber: 184,
@@ -1766,7 +1766,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
         setNewMessage("");
     };
     const formatTime = (timestamp)=>{
-        return new Date(timestamp).toLocaleTimeString([], {
+        return new Date(timestamp).toLocaleTimeString("pt-PT", {
             hour: "2-digit",
             minute: "2-digit"
         });
@@ -1776,17 +1776,17 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
         const now = new Date();
         const tomorrow = new Date(now.getTime() + 24 * 60 * 60 * 1000);
         if (date.toDateString() === now.toDateString()) {
-            return `Today at ${date.toLocaleTimeString([], {
+            return `Hoje às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         } else if (date.toDateString() === tomorrow.toDateString()) {
-            return `Tomorrow at ${date.toLocaleTimeString([], {
+            return `Amanhã às ${date.toLocaleTimeString("pt-PT", {
                 hour: "2-digit",
                 minute: "2-digit"
             })}`;
         }
-        return date.toLocaleDateString([], {
+        return date.toLocaleDateString("pt-PT", {
             weekday: "short",
             month: "short",
             day: "numeric",
@@ -1940,7 +1940,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                     children: [
                                                         jam.attendees.length,
-                                                        " going"
+                                                        " a participar"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/src/components/chat-panel.tsx",
@@ -1972,7 +1972,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                                 lineNumber: 118,
                                                 columnNumber: 21
                                             }, this),
-                                            "Leave Jam"
+                                            "Sair da jam"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/chat-panel.tsx",
@@ -1989,7 +1989,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                                 lineNumber: 126,
                                                 columnNumber: 21
                                             }, this),
-                                            "Join Jam"
+                                            "Participar"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/chat-panel.tsx",
@@ -2015,7 +2015,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-center",
-                                            children: "No messages yet"
+                                            children: "Ainda não há mensagens"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/chat-panel.tsx",
                                             lineNumber: 137,
@@ -2023,7 +2023,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                             className: "text-sm",
-                                            children: "Be the first to say something!"
+                                            children: "Sê o primeiro a dizer alguma coisa!"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/chat-panel.tsx",
                                             lineNumber: 138,
@@ -2100,7 +2100,7 @@ function ChatPanel({ jam, messages, currentUser, isOpen, onClose, onSendMessage,
                                         value: newMessage,
                                         onChange: (e)=>setNewMessage(e.target.value),
                                         onKeyDown: (e)=>e.key === "Enter" && handleSend(),
-                                        placeholder: "Type a message...",
+                                        placeholder: "Escreve uma mensagem...",
                                         className: "flex-1 px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/chat-panel.tsx",
@@ -2206,7 +2206,7 @@ const DURATIONS = [
     "2h",
     "3h",
     "4h",
-    "Late"
+    "Até tarde"
 ];
 function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initialPos }) {
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
@@ -2261,7 +2261,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
     const handleSubmit = (e)=>{
         e.preventDefault();
         if (!formData.pos) {
-            alert("Please select a location on the map or search for an address.");
+            alert("Seleciona uma localização no mapa ou procura uma morada.");
             return;
         }
         const fullDateTime = new Date(`${formData.date}T${formData.time}`);
@@ -2270,7 +2270,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
             location: formData.location,
             pos: formData.pos,
             dateTime: fullDateTime.toISOString(),
-            duration: formData.duration === "Late" ? "Late" : formData.duration,
+            duration: formData.duration === "Até tarde" ? "Até tarde" : formData.duration,
             icon: formData.icon,
             privacy: formData.privacy,
             targetGroups: formData.targetGroups,
@@ -2346,7 +2346,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                     className: "text-xl font-semibold text-foreground",
-                                    children: "Host a Jam"
+                                    children: "Criar uma Jam"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/create-jam-modal.tsx",
                                     lineNumber: 157,
@@ -2383,7 +2383,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "JAM TITLE"
+                                            children: "TÍTULO DA JAM"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 166,
@@ -2396,7 +2396,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                                     ...formData,
                                                     title: e.target.value
                                                 }),
-                                            placeholder: "What's happening?",
+                                            placeholder: "O que vai acontecer?",
                                             className: "w-full px-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
@@ -2414,7 +2414,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "LOCATION"
+                                            children: "LOCALIZAÇÃO"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 178,
@@ -2438,7 +2438,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                                             value: searchQuery,
                                                             onChange: (e)=>setSearchQuery(e.target.value),
                                                             onKeyDown: (e)=>e.key === "Enter" && (e.preventDefault(), handleSearch()),
-                                                            placeholder: "Search for a place...",
+                                                            placeholder: "Procurar um local...",
                                                             className: "w-full pl-11 pr-4 py-3 rounded-xl bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/create-jam-modal.tsx",
@@ -2462,7 +2462,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                                         fileName: "[project]/src/components/create-jam-modal.tsx",
                                                         lineNumber: 195,
                                                         columnNumber: 36
-                                                    }, this) : "Find"
+                                                    }, this) : "Procurar"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/create-jam-modal.tsx",
                                                     lineNumber: 190,
@@ -2501,7 +2501,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                                     lineNumber: 214,
                                                     columnNumber: 21
                                                 }, this),
-                                                "Location set: ",
+                                                "Local definido: ",
                                                 formData.pos[0].toFixed(4),
                                                 ", ",
                                                 formData.pos[1].toFixed(4)
@@ -2522,7 +2522,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "WHEN"
+                                            children: "QUANDO"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 222,
@@ -2593,7 +2593,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "DURATION"
+                                            children: "DURAÇÃO"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 246,
@@ -2630,7 +2630,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "ICON"
+                                            children: "ÍCONE"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 268,
@@ -2680,7 +2680,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "WHO CAN SEE"
+                                            children: "QUEM PODE VER"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 294,
@@ -2691,17 +2691,17 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                             children: [
                                                 {
                                                     id: "public",
-                                                    label: "Public",
+                                                    label: "Público",
                                                     icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$globe$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Globe$3e$__["Globe"]
                                                 },
                                                 {
                                                     id: "all-friends",
-                                                    label: "Friends",
+                                                    label: "Amigos",
                                                     icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2d$check$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__UserCheck$3e$__["UserCheck"]
                                                 },
                                                 {
                                                     id: "groups",
-                                                    label: "Groups",
+                                                    label: "Grupos",
                                                     icon: __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Shield$3e$__["Shield"]
                                                 }
                                             ].map((p)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2742,7 +2742,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                             className: "text-sm font-medium text-muted-foreground",
-                                            children: "SELECT GROUPS"
+                                            children: "SELECIONAR GRUPOS"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/create-jam-modal.tsx",
                                             lineNumber: 322,
@@ -2761,7 +2761,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                                     columnNumber: 25
                                                 }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                 className: "text-sm text-muted-foreground",
-                                                children: "No groups found. Create one first!"
+                                                children: "Não há grupos. Cria um primeiro!"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/create-jam-modal.tsx",
                                                 lineNumber: 341,
@@ -2781,7 +2781,7 @@ function CreateJamModal({ isOpen, onClose, onCreate, groups, currentUser, initia
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     type: "submit",
                                     className: "w-full py-4 rounded-xl bg-primary text-primary-foreground font-semibold text-lg hover:opacity-90 transition-opacity",
-                                    children: "Post Jam"
+                                    children: "Publicar Jam"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/create-jam-modal.tsx",
                                     lineNumber: 348,
@@ -2879,7 +2879,7 @@ const MapView = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules
             className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].loadingState,
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].loadingText,
-                children: "Loading map..."
+                children: "A carregar mapa..."
             }, void 0, false, {
                 fileName: "[project]/src/app/page.tsx",
                 lineNumber: 23,
@@ -3007,7 +3007,7 @@ function Home() {
                                         className: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toolbarTitle,
                                         children: [
                                             jams.length,
-                                            " jams nearby"
+                                            " jams por perto"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/page.tsx",
@@ -3020,7 +3020,7 @@ function Home() {
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>setMapView("map"),
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButton, mapView === "map" ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButtonActive : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButtonIdle),
-                                                "aria-label": "Map view",
+                                                "aria-label": "Vista de mapa",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Map$3e$__["Map"], {
                                                     size: 18,
                                                     className: mapView === "map" ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleIconActive : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleIconIdle
@@ -3037,7 +3037,7 @@ function Home() {
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>setMapView("list"),
                                                 className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["cn"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButton, mapView === "list" ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButtonActive : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleButtonIdle),
-                                                "aria-label": "List view",
+                                                "aria-label": "Vista de lista",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$list$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__List$3e$__["List"], {
                                                     size: 18,
                                                     className: mapView === "list" ? __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleIconActive : __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$app$2f$page$2e$module$2e$css__$5b$app$2d$ssr$5d$__$28$css__module$29$__["default"].toggleIconIdle

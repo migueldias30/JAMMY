@@ -27,9 +27,9 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
     return (
       <div className={styles.empty}>
         <Calendar size={48} className={styles.emptyIcon} />
-        <p className={styles.emptyTitle}>No jams yet</p>
+        <p className={styles.emptyTitle}>Ainda não há jams</p>
         <p className={styles.emptyText}>
-          Create your first jam or wait for friends to invite you!
+          Cria a tua primeira jam ou espera por um convite dos teus amigos.
         </p>
       </div>
     );
@@ -41,7 +41,7 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
         <section>
           <h2 className={styles.sectionTitle}>
             <Clock size={16} />
-            Upcoming
+            Próximas
           </h2>
           <div className={styles.cards}>
             {upcomingJams.map((jam) => (
@@ -63,7 +63,7 @@ export default function JamsList({ jams, currentUserId, onSelectJam, onOpenChat 
         <section>
           <h2 className={styles.sectionTitle}>
             <Calendar size={16} />
-            Past Jams
+            Jams anteriores
           </h2>
           <div className={styles.pastCards}>
             {pastJams.map((jam) => (

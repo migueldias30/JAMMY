@@ -42,7 +42,7 @@ export default function Header({ user, onCreateJam, hasNotifications }: HeaderPr
         <div className={styles.actions}>
           <button
             className={styles.iconButton}
-            aria-label="Notifications"
+            aria-label="Notificações"
           >
             <Bell size={20} />
             {hasNotifications && (
@@ -54,7 +54,7 @@ export default function Header({ user, onCreateJam, hasNotifications }: HeaderPr
             className={styles.cta}
           >
             <Plus size={20} />
-            <span className={styles.ctaLabel}>New Jam</span>
+            <span className={styles.ctaLabel}>Nova Jam</span>
           </button>
         </div>
       </div>
