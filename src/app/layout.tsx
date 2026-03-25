@@ -1,11 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import "leaflet/dist/leaflet.css";
 
 export const metadata: Metadata = {
   title: "Jammy - Meet Your Friends",
@@ -27,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         {children}
       </body>
     </html>
